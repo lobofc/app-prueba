@@ -12,25 +12,25 @@
           %li= message
     .row
       .input-field.col.s12
-        %input#titulo.validate= f.text_field :titulo
+        %f.input#descripcion.validate{:titulo, :type => "text"}/         
         %label{"data-error" => "wrong", "data-success" => "right", :for => "titulo"} Título
     .row
       .input-field.col.s12
-        %textarea#textarea1.materialize-textarea= f.text_area :descripcion
+        %f.textarea#textarea1.materialize-textarea{:descripcion}
         %label{:for => "textarea1"} Descripción
     .file-field.input-field
       .btn
         %span File
-        %input{:type => "file"}/
+        %f.input{:document, :type => "file"}/
       .file-path-wrapper
-        %input.file-path.validate= f.file_field :document 
+        %input.file-path.validate
       .col.s12.m4
-        %a.waves-effect.waves-light.btn= f.submit 'Guardar'                      
+        .waves-effect.waves-light.btn= f.submit 'Guardar'                      
 .container
   .row
     .col.s12.right-align      
       .col.s12.m4
-        %a.waves-effect.waves-light.btn= link_to 'Volver', contests_path
+        .waves-effect.waves-light.btn= link_to 'Volver', contests_path
 
 %script{:src => "js/jquery-3.2.1.min.js", :type => "text/javascript"}
 %script{:src => "js/materialize.min.js", :type => "text/javascript"}
