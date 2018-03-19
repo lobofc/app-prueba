@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    = render 'app/layouts/head'
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bolsa Pública
+    %meta{:charset => "utf-8"}/
+    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/    
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/panel.css", :rel => "stylesheet", :type => "text/css"}/
+%body{:bgcolor => "#eeeeee"}
+  %nav
+    .nav-wrapper.red.darken-4.navtop
+      %a.brand-logo{:href => "#"} Concurso Público para Ingreso de Personal
+  .container.titlelist
+    .row
+      %h3 Concursos Publicados      
+      .waves-effect.waves-light.btn.linkw= link_to 'Crear Nuevo', new_contest_path
+  .container.formtop2.center-align
+    .row
+      - @contests.each do |contest|
+        .col.s12.m6
+          %p= contest.titulo
+        .col.s4.m2
+          .waves-effect.waves-light.btn.teal.darken-3.linkw= link_to 'Mostrar', contest          
+        .col.s4.m2          
+          .waves-effect.waves-light.btn.yellow.darken-1.linkw= link_to 'Editar', edit_contest_path(contest)
+        .col.s4.m2
+          .waves-effect.waves-light.btn.red.darken-4.linkw= link_to 'Borrar', contest, method: :delete, data: { confirm: 'Are you sure?' }         
+    %script{:src => "js/jquery-3.2.1.min.js", :type => "text/javascript"}
+    %script{:src => "js/materialize.min.js", :type => "text/javascript"}
+    :javascript
+      $('#textarea1').val('New Text');
+      $('#textarea1').trigger('autoresize');
+
+
+

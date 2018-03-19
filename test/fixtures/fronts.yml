@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  custodia: MyString
+  mercadosecundario: MyString
+  marcolegal: MyString
+  persona: MyString
+  tarifas: MyString
+  colocacion: MyString
+  contacto: MyString
+  ventajas: MyString
+  emisor: MyString
+  juridica: MyString
+  quienessomos: MyString
+  estructuracion: MyString
+  index: MyString
+  colocacioninstrumentos: MyString
+  atencion: MyString
+  cssslider: MyString
+
+two:
+  custodia: MyString
+  mercadosecundario: MyString
+  marcolegal: MyString
+  persona: MyString
+  tarifas: MyString
+  colocacion: MyString
+  contacto: MyString
+  ventajas: MyString
+  emisor: MyString
+  juridica: MyString
+  quienessomos: MyString
+  estructuracion: MyString
+  index: MyString
+  colocacioninstrumentos: MyString
+  atencion: MyString
+  cssslider: MyString

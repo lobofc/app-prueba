@@ -1,0 +1,318 @@
+!!!
+%html
+  %head
+    = render 'app/layouts/head'
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bolsa Pública
+    %meta{:charset => "utf-8"}/
+    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
+  %body
+    .col.l12
+      .cintillo
+        %img{:src => "assets/img/cintillo.jpg"}/
+    .navbar-fixed
+      %nav
+        .nav-wrapper.white
+          %a.brand-logo{:href => "/index"}
+            %img{:src => "assets/img/logo.png"}/
+          %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
+            %i.material-icons.grey-text.text-darken-4 menu
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.white-text{:href => "/contacto"} Contacto
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-3.white-text{:href => "/estadisticas"} Estadísticas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-4.white-text{:href => "/tarifas"} Tarifas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-3.white-text{:href => "/quienessomos"} Quienes Somos
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-4.white-text{:href => "/index"} Inicio
+          %ul#mobile-demo.side-nav
+            %li
+              %a{:href => "/index"} Inicio
+            %li
+              %a{:href => "/quienessomos"} Quienes Somos
+            %li
+              %a{:href => "/tarifas"} Tarifas
+            %li
+              %a{:href => "/estadisticas"} Estadísticas
+            %li
+              %a{:href => "/contacto"} Contacto
+    .container.anidada
+      .row
+        .col.s12
+          %h4 Requisitos para Persona Jurídica
+        .card-content
+          #test4
+            .row.col.s12
+              %a.btn.button-collapse.red.darken-4.white-text{"data-activates" => "slide-out", :href => "#"}
+                %i.material-icons.left> archive
+                Descargar Formatos
+            .row
+              .col.s12.red.darken-1.border
+                %h5.white-text.center-align.requisito Ficha de Identificación del Inversionista
+              .col.s12.borderList
+                %ol.margenList.cambio
+                  %li
+                    %h6 Original.
+                  %li
+                    %h6 Obtenida por medios electrónicos a través del portal de la Bolsa Pública de Valores Bicentenaria (www.bpvb.gob.ve), con la información solicitada en cada uno de sus campos. En caso contrario, coloque N/A en señal de no aplica en cada ítems, impresa en tamaño carta.
+                  %li
+                    %h6 Debidamente con su firma igual a la Cédula de Identidad y huella. Sin tachaduras ni enmiendas.
+                  %li
+                    %h6 Puede ser llenada a bolígrafo o en computador.
+            .row
+              .col.s12.grey.darken-2.border2
+                %h5.white-text.center-align.requisito Documento Constitutivo Estatutario o Ley de Creación (Según Corresponda)
+              .col.s12.borderList.cambio
+                %h6.margenList2
+                  %b En caso de ser Instituto Público:
+                %ol.margenList.cambio
+                  %li
+                    %h6 Gaceta Oficial.
+                  %li
+                    %h6 Instrumento de Designación de la Máxima Autoridad.
+                  %li
+                    %h6 Instrumento en el cual consta la facultad de actuar ante la BPVB.
+                %h6.margenList2
+                  %b En caso de ser empresa venezolana:
+                %ol.margenList.cambio
+                  %li
+                    %h6 Copia del Documento Constitutivo de la Empresa.
+                  %li
+                    %h6
+                      Actas de Asamblea General de Accionistas, en caso de existir alguna modificación en los estatutos relacionadas a:
+                      %br/
+                      %br/
+                      1. Modificación de la Razón Social.
+                      %br/
+                      2. Ampliación del Objeto (Actividad Económica).
+                      %br/
+                      3. Aumento del Capital.
+                      %br/
+                      4. Modificación de la Junta Directiva.
+                      %br/
+                      5. Cambio de Comisario.
+                      %br/
+                      6. Cambio del Domicilio.
+                      %br/
+                      7. Venta o Transferencias de Acciones.
+                      %br/
+                %h6.margenList2
+                  %b En caso de ser Empresa Extranjera no domiciliada en el país:
+                %ol.margenList.cambio
+                  %li
+                    %h6 Copia del Documento Constitutivo, traducido al idioma Castellano, debidamente legalizado.
+                  %li
+                    %h6 En caso que uno (1) o más accionistas sean Persona Jurídica, deberán consignar:
+                  %li
+                    %h6 Copia del Documento Constitutivo y RIF de la misma.
+            .row
+              .col.s12.blue.darken-3.border3
+                %h5.white-text.center-align.requisito Registro de Información Fiscal (RIF)
+              .col.s12.borderList
+                %ol.margenList.cambio
+                  %li
+                    %h6 Copia.
+                  %li
+                    %h6 Vigente y legible.
+            .row
+              .col.s12.yellow.darken-2.border4
+                %h5.white-text.center-align.requisito Poder (En caso de Representante Legal)
+              .col.s12.borderList
+                %ol.margenList.cambio
+                  %li
+                    %h6 Cuando corresponda.
+                  %li
+                    %h6 Copia.
+                  %li
+                    %h6 Debidamente autenticado.
+                  %li
+                    %h6 En caso de actuar a través de Poder, el mismo debe facultar expresamente, las operaciones que pretenda efectuar en la BPVB.
+            .row
+              .col.s12.red.darken-1.border
+                %h5.white-text.center-align.requisito Planillas de las últimas tres (03) Declaraciones del Impuesto Sobre La Renta (ISLR).
+              .col.s12.borderList
+                %h6.margenList2
+                  %b (Exceptuando Cajas y Fondos de Ahorro, Entidades Bancarias, Seguros y Operadores de Valores Autorizados).
+                %ol.margenList.cambio
+                  %li
+                    %h6 Copia.
+                  %li
+                    %h6 En caso que la empresa esté constituida en un tiempo menor a tres años, consignar las declaradas hasta la fecha.
+            .row
+              .col.s12.grey.darken-2.border2
+                %h5.white-text.center-align.requisito Estados de Cuenta
+              .col.s12.borderList
+                %h6.margenList2
+                  %b (Exceptuando las Entidades Bancarias).
+                %ol.margenList.cambio
+                  %li
+                    %h6 De los últimos tres (03) meses correspondientes a las cuentas inscritas en la Ficha de Identificación del Inversionista.
+                  %li
+                    %h6 Debidamente firmados y sellados por la entidad bancaria emisora.
+            .row
+              .col.s12.yellow.darken-2.border4
+                %h5.white-text.center-align.requisito Certificación Bancaria de Apertura de la Cuenta Convenio N° 20
+              .col.s12.borderList
+                %ol.margenList.cambio
+                  %li
+                    %h6 Deberá reflejar las Coordenadas del Banco Corresponsal
+                  %li
+                    %h6 Debidamente firmada y sellada por la entidad bancaria emisora
+                  %li
+                    %h6 Certificación Bancaria de otras cuentas en el exterior que desee incorporar
+        .row
+          .col.s12.blue.darken-3.border3
+            %h5.white-text.center-align.requisito Balance General de la Empresa y Estado de Ganancias y Pérdidas
+          .col.s12.borderList
+            %h6.margenList2
+              %b (Exceptuando Cajas y Fondos de Ahorro, Entidades Bancarias, Seguros y Operadores de Valores Autorizados).
+            %ol.margenList.cambio
+              %li
+                %h6 Deberá corresponder a la fecha de cierre según los estatutos y los tres (03) últimos ejercicios fiscales.
+              %li
+                %h6 Si la empresa tiene menos de este tiempo operando deberá consignar Estados Financieros de los Ejercicios que posee.
+              %li
+                %h6 Los Estados Financieros no podrán ser elaborados ni firmados por el Comisario de la empresa (En caso de poseerlo), deberán estar avalados por un Contador Público colegiado y certificado.
+        .row
+          .col.s12.borderList
+            %ul.margenList
+              %li.cambio
+                %h6
+                  %b LOS MIEMBROS DE LA JUNTA DIRECTIVA DE LA EMPRESA IDENTIFICADOS EN EL DOCUMENTO CONSTITUTIVO ESTATUTARIO, DEBERÁN CONSIGNAR:
+        .row
+          .col.s12.red.darken-1.border
+            %h5.white-text.center-align.requisito.cambio Cédula de Identidad de todos los integrantes de la Junta Directiva
+          .col.s12.borderList
+            %h6.margenList2
+              %b Cédula de Identidad de todos los integrantes de la Junta Directiva.
+            %ol.margenList.cambio
+              %li
+                %h6 Copia.
+              %li
+                %h6 Visible, Legible y Vigente.
+        .row
+          .col.s12.grey.darken-2.border2
+            %h5.white-text.center-align.requisito Pasaporte de los integrantes de la Junta Directiva
+          .col.s12.borderList
+            %h6.margenList2
+              %b SÓLO PARA EXTRANJEROS RESIDENTES EN EL TERRITORIO DE LA REPÚBLICA BOLIVARIANA DE VENEZUELA.
+            %ol.margenList.cambio
+              %li
+                %h6 Copia.
+              %li
+                %h6 Visible, Legible y Vigente.
+              %li
+                %h6 En caso de tener Visa de trabajo, debe incluirla.
+        .row
+          .col.s12.blue.darken-3.border3
+            %h5.white-text.center-align.requisito Registro de Información Fiscal (RIF) de todos los integrantes de la Junta Directiva
+          .col.s12.borderList
+            %ol.margenList.cambio
+              %li
+                %h6 Copia Vigente y legible.
+        .col.s12
+          %ul
+            %li.cambio
+              %h6
+                %b EN CASO DE SER EMPRESA EXTRANJERA, DEBERÁ CONSIGNAR:
+        .row
+          .col.s12.yellow.darken-2.border4
+            %h5.white-text.center-align.requisito Certificado de Inversionista Extranjero
+          .col.s12.borderList
+            %ol.margenList.cambio
+              %li
+                %h6 Copia.
+              %li
+                %h6 Emanada por la Superintendencia Nacional de Valores.
+    %ul#slide-out.side-nav
+      %li
+        .user-view
+          .background            
+          %a{:href => "#!user"}
+            %img.circle{:src => "assets/img/logo.png"}/
+          %a{:href => "#!name"}
+            %span.black-text.name
+              %b Persona Jurídica
+      %li
+        .divider
+      %li
+        %a{:href => "paso a paso persona juridica.pdf", :target => "blank"} Instructivo paso a paso
+      %li
+        %a{:href => "Lista de recaudos para PJ.pdf", :target => "blank"} Lista de recaudos
+      %li
+        %a{:href => "Ficha de Identificacion del Inversor PJ.docx", :target => "blank"} Ficha de identificación del inversor
+      %li
+        %a{:href => "Separadores Inversor Persona Juridica.docx", :target => "blank"} Modelo de Carpeta                        
+    %footer.page-footer
+      .container
+        .row
+          .col.s12.m6
+            %h5.white-text Bolsa Pública de Valores Bicentenaria
+            %p.grey-text.text-lighten-4
+              Av. Francisco de Miranda, Edif. Torre Europa, Piso Nivel C, Of. S/N
+              %br/
+              Urb. El Rosal, Caracas(Chacao), Miranda. Zona Postal: 1060.
+              %br/
+              %b Horario de atención al público:
+              De 8:00 a.m. a 4:30 p.m.
+              %br/
+              %b Teléfono:
+              0212-9558800.
+            %br/
+            %ul.social
+              %li
+                %h6 Redes Sociales:
+                %br/
+              %li
+                %a.icon-facebook.img-circle{:href => "https://www.facebook.com/bolsapublicave/", :target => "_blank"}
+                %a.icon-twitter.img-circle{:href => "https://twitter.com/Bolsa_Publica", :target => "_blank"}
+                %a.icon-instagram.img-circle{:href => "https://www.instagram.com/bolsa_publica/", :target => "_blank"}
+          .col.l4.offset-l2.s12
+            %h5.white-text Menú
+            %ul
+              %li
+                %a.grey-text.text-lighten-3{:href => "/documents/LCFT.pdf", :target => "blank"} Prevención y control
+              %li
+                %a.grey-text.text-lighten-3{:href => "/atencion"} Atención al Ciudadano
+              %li
+                %a.grey-text.text-lighten-3{:href => "/marcolegal"} Marco Legal
+              %li
+                %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve/snv/site/glosario_terminos.php"} Glosario de términos
+              %h5.white-text Enlaces de interés
+              %ul
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.bcv.org.ve", :target => "blank"} Banco Central de Venezuela
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve", :target => "blank"} Superintendencia Nacional de Valores
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.mppef.gob.ve", :target => "blank"} Ministerio del Poder Popular de Economía y Finanzas
+      .footer-copyright
+        .container
+          © 2017 Copyright Bolsa Pública de Valores Bicentenaria / RIF: G-20009677-2
+    %script{:src => "assets/js/jquery-3.2.1.min.js", :type => "text/javascript"}
+    %script{:src => "assets/js/materialize.min.js", :type => "text/javascript"}
+    :javascript
+      $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+      })
+
+      $(document).ready(function(){
+          $('.slider').slider();
+        });
+
+      $(".button-collapse").sideNav();
+
+      // Hide sideNav
+      $('.button-collapse').sideNav('hide');
+      // Destroy sideNav
+      $('.button-collapse').sideNav('destroy');

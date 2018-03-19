@@ -1,0 +1,1131 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bolsa Pública
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, user-scalable=no, initial-scalable=1.0, maximum-scale=1.0, minimum-scale=1.0", :name => "viewport"}/
+    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "assets/css/calculadora.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
+    :css
+      input[type=number]::-webkit-outer-spin-button,
+
+      input[type=number]::-webkit-inner-spin-button {
+
+          -webkit-appearance: none;
+
+          margin: 0;
+
+      }
+
+
+
+      input[type=number] {
+
+          -moz-appearance:textfield;
+
+      }
+  %body
+    .col.l12
+      .cintillo
+        %img{:src => "assets/img/cintillo.jpg"}/
+    .navbar-fixed
+      %nav
+        .nav-wrapper.white
+          %a.brand-logo{:href => "/index"}
+            %img{:src => "assets/img/logo.png"}/
+          %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
+            %i.material-icons.grey-text.text-darken-4 menu
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.white-text{:href => "/contacto"} Contacto
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-3.white-text{:href => "/estadisticas"} Estadísticas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-4.white-text{:href => "/tarifas"} Tarifas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-3.white-text{:href => "/quienessomos"} Quiénes Somos
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-4.white-text{:href => "/index"} Inicio
+          %ul#mobile-demo.side-nav
+            %li
+              %a{:href => "/index"} Inicio
+            %li
+              %a{:href => "/quienessomos"} Quiénes Somos
+            %li
+              %a{:href => "/tarifas"} Tarifas
+            %li
+              %a{:href => "/estadisticas"} Estadísticas
+            %li
+              %a{:href => "/contacto"} Contacto
+    .row.letreroFondo
+      .col.s12.m6.hide-on-small-only
+        %img.responsive-img{:src => "assets/img/Letrero_fondo.png"}/
+    .container
+      .row
+        .col.s12.m6
+          .form.col.s12.grey.lighten-3
+            .col.s10.offset-s1
+              %form#formCalcular{:name => "formCalcular"}
+                %ul.campos
+                  %li
+                    .row
+                      .input-field.col.s8
+                        %select#clicon{:name => "clicon"}
+                          %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Instrumento a calcular
+                          %option{:value => "producto1"} TIF012024
+                          %option{:value => "producto2"} TIF022029
+                          %option{:value => "producto3"} TIF032028
+                          %option{:value => "producto4"} TIF092034
+                          %option{:value => "producto5"} TIF092035
+                          %option{:value => "producto6"} VEB012023
+                          %option{:value => "producto7"} VEB032035
+                          %option{:value => "producto8"} VEB042028
+                          %option{:value => "producto9"} VEB062032
+                          %option{:value => "producto10"} VEB072033
+                  %li
+                    %label.col.s4.grey-text.text-darken-4
+                      %h6 Fecha Valor:
+                    %input#dia.col.s2{:name => "dia", :placeholder => "DD", :required => "", :type => "number"}/
+                    %input#mes.col.s2.offset-s1{:name => "mes", :placeholder => "MM", :required => "", :type => "number"}/
+                    %input#ano.col.s2.offset-s1{:name => "ano", :placeholder => "AÑO", :required => "", :type => "number"}/
+                  %li
+                    %label.col.s4.grey-text.text-darken-4
+                      %h6 Valor Nominal:
+                    %input#nominal.col.s6{:name => "nominal", :placeholder => "00000000", :required => "", :type => "text"}/
+                    %h5.col.s2 Bs
+                  %li
+                    %label.col.s4.grey-text.text-darken-4
+                      %h6 Precio:
+                    %input#precio.col.s4{:name => "precio", :placeholder => "000", :required => "required", :type => "text"}/
+                    %h5.col.s2 %
+                  %li.send
+                    %button#calcular.btn.waves-effect.waves-light.col.s12.m4.offset-m1.teal.darken-3{:onclick => "comprobarFecha(), validar()", :type => "button", :value => "Calcular"}
+                      Calcular
+                      %i.material-icons.right iso
+                    %button.btn.waves-effect.waves-light.amber.accent-4.col.s12.m4.offset-m1{:onclick => "limpiar()", :type => "button", :value => "Calcular"}
+                      Limpiar
+                      %i.material-icons.right clear_all
+          .row
+            .resultado.col.s12
+              #resultado2.col.s12.m6.green.lighten-4
+              #resultado.col.s12.m6.yellow.lighten-3.teal-text.text-darken-3
+        .datos.col.s12.m6
+          .col.s10.offset-s1.center-align
+            %ul.campos2
+              %li#emisor.blue-grey.lighten-4
+                %h6
+                  %b Emisor: República Bolivariana de Venezuela
+              %li#codigo.blue-grey.lighten-5
+              %li#denominacion.blue-grey.lighten-4
+                %h6
+                  %b Denominación: Bolivares
+              %li#emision.blue-grey.lighten-5
+                %h6
+              %li#vencimiento.blue-grey.lighten-4
+              %li#cupon.blue-grey.lighten-5
+          .instrucciones.col.s10.offset-s1
+            .row
+              .col.s12.red-text.text-darken-4.center-align
+                %h6 Instrucciones de uso de la Calculadora Financiera
+              %ul.collapsible{"data-collapsible" => "accordion"}
+                %li
+                  .collapsible-header
+                    Fecha Valor
+                  .collapsible-body.justificar
+                    %p Momento en el cual se ejecutará efectivamente la operación.
+                %li
+                  .collapsible-header
+                    Valor Nominal
+                  .collapsible-body.justificar
+                    %p Representa la cantidad en moneda que pagará ese título a su vencimiento.
+                %li
+                  .collapsible-header
+                    Precio
+                  .collapsible-body.justificar
+                    %p
+                      %b Representa el porcentaje del valor del título. Pueden ser tres tipos:
+                    %p
+                      %b * Con prima:
+                      cuando el precio es superior a 100%, es decir, el comprador paga un valor superior al que pagará el título en su vencimiento. Se traduce en un rendimiento menor a la tasa de interés del título.
+                      %br/
+                    %p
+                      %b *A la par:
+                      cuando el precio es 100%, el comprador paga un valor igual al que pagará el título en su vencimiento. Se traduce en un rendimiento igual a la tasa de interés del título.
+                      %br/
+                    %p
+                      %b * A descuento:
+                      cuando el precio es menor a 100%, el comprador paga un valor inferior al que pagará el título en su vencimiento. Se traduce en un rendimiento superior al de la tasa de interés del título.
+                %li
+                  .collapsible-header
+                    Resultados
+                  .collapsible-body.justificar
+                    %p
+                      %b Rendimiento Efectivo:
+                      Es el porcentaje de la inversión que gana el inversionista por mantener en su posición los títulos hasta el vencimiento.
+                    %p
+                      %b Total a pagar:
+                      Monto total a pagar por la inversión.
+    %footer.page-footer
+      .container
+        .row
+          .col.s12.m6
+            %h5.white-text Bolsa Pública de Valores Bicentenaria
+            %p.grey-text.text-lighten-4
+              Av. Francisco de Miranda, Edif. Torre Europa, Piso Nivel C, Of. S/N
+              %br/
+              Urb. El Rosal, Caracas(Chacao), Miranda. Zona Postal: 1060.
+              %br/
+              %b Horario de atención al público:
+              De 8:00 a.m. a 4:30 p.m.
+              %br/
+              %b Teléfono:
+              0212-9558800.
+            %br/
+            %ul.social
+              %li
+                %h6 Redes Sociales:
+                %br/
+              %li
+                %a.icon-facebook.img-circle{:href => "https://www.facebook.com/bolsapublicave/", :target => "_blank"}
+                %a.icon-twitter.img-circle{:href => "https://twitter.com/Bolsa_Publica", :target => "_blank"}
+                %a.icon-instagram.img-circle{:href => "https://www.instagram.com/bolsa_publica/", :target => "_blank"}
+          .col.l4.offset-l2.s12
+            %h5.white-text Menú
+            %ul
+              %li
+                %a.grey-text.text-lighten-3{:href => "/documents/LCFT.pdf", :target => "blank"} Prevención y control
+              %li
+                %a.grey-text.text-lighten-3{:href => "/atencion"} Atención al Ciudadano
+              %li
+                %a.grey-text.text-lighten-3{:href => "/marcolegal"} Marco Legal
+              %li
+                %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve/snv/site/glosario_terminos.php"} Glosario de términos
+              %h5.white-text Enlaces de interés
+              %ul
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.bcv.org.ve", :target => "blank"} Banco Central de Venezuela
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve", :target => "blank"} Superintendencia Nacional de Valores
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.mppef.gob.ve", :target => "blank"} Ministerio del Poder Popular de Economía y Finanzas
+      .footer-copyright
+        .container
+          © 2017 Copyright Bolsa Pública de Valores Bicentenaria / RIF: G-20009677-2
+    %script{:src => "assets/js/jquery-3.2.1.min.js", :type => "text/javascript"}
+    %script{:src => "assets/js/materialize.min.js", :type => "text/javascript"}
+    :javascript
+      function comprobarFecha()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2024,01,04);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+          if (fechaValor < fechaActual)
+          {
+              alert("Debes ingresar una fecha igual o mayor a la fecha actual");
+            } else if (fechaValor > fechaVencimiento)
+            {
+              alert("Debes ingresar una fecha anterior a la fecha de vencimiento 04/01/2024");
+            }
+        }
+
+        function validar()  {
+
+          var dia = document.getElementById("dia").value;
+          var mes = document.getElementById("mes").value;
+          var ano = document.getElementById("ano").value;
+          var valorNominal = document.getElementById("nominal").value;
+            var precio = document.getElementById("precio").value;
+
+          if (dia.length <1){
+            alert('Parámetro de fecha inválido');
+          }
+          else if (dia.length >2)
+          {
+            alert('Parámetro de fecha inválido');
+          } else if (mes.length <1)
+          {
+            alert('Parámetro de fecha inválido');
+          } else if (mes.length >2)
+          {
+            alert('Parámetro de fecha inválido');
+          } else if (ano.length <4)
+          {
+            alert('Parámetro de fecha inválido');
+          } else if (ano.length >4)
+          {
+            alert('Parámetro de fecha inválido');
+          } else if (dia > 31)
+          {
+            alert('Parámetro de fecha inválido');
+          } else if (mes > 12)
+          {
+            alert('Parámetro de fecha inválido');
+          } else if (valorNominal.length <1)
+          {
+            alert('Debe ingresar los datos en el campo requerido');
+          } else if (precio.length <1)
+          {
+            alert('Debe ingresar los datos en el campo requerido');
+          }
+        }
+
+        function limpiar()
+        {
+          document.getElementById("formCalcular").reset();
+        }
+
+
+        var aplicacion = {
+
+          boton : null,
+          lista : null,
+
+          funcion1 : function() {
+            comprobarFecha()
+            validar()
+              calcular1();
+          },
+
+          funcion2 : function() {
+            comprobarFecha()
+            validar()
+              calcular2();
+          },
+
+          funcion3 : function() {
+            comprobarFecha()
+            validar()
+              calcular3();
+          },
+
+          funcion4 : function() {
+            comprobarFecha()
+            validar()
+              calcular4();
+          },
+
+          funcion5 : function() {
+            comprobarFecha()
+            validar()
+              calcular5();
+          },
+
+          funcion6 : function() {
+            comprobarFecha()
+            validar()
+              calcular6();
+          },
+
+          funcion7 : function() {
+            comprobarFecha()
+            validar()
+              calcular7();
+          },
+
+          funcion8 : function() {
+            comprobarFecha()
+            validar()
+              calcular8();
+          },
+
+          funcion9 : function() {
+            comprobarFecha()
+            validar()
+              calcular9();
+          },
+
+          funcion10 : function() {
+            comprobarFecha()
+            validar()
+              calcular10();
+          },
+
+          asignarFuncion : function() {
+              var valor = aplicacion.lista.value;
+
+              if (valor === 'producto1') {
+                  aplicacion.campoTexto.onclick = aplicacion.funcion1;
+                  document.getElementById('codigo').innerHTML= "Código Sicet: DPBS00324-0027";
+                  document.getElementById('emision').innerHTML= "Fecha de Emisión: 15/08/2013";
+                  document.getElementById('vencimiento').innerHTML= "Fecha de Vencimiento: 04/01/2024";
+                  document.getElementById('cupon').innerHTML= "Cupón: 16.25%";
+              } else  if (valor === 'producto2') {
+                  aplicacion.campoTexto.onclick = aplicacion.funcion2;
+                  document.getElementById('codigo').innerHTML= "Código Sicet: DPBS01632-0020";
+                  document.getElementById('emision').innerHTML= "Fecha de Emisión: 24/02/2015";
+                  document.getElementById('vencimiento').innerHTML= "Fecha de Vencimiento: 15/02/2029";
+                  document.getElementById('cupon').innerHTML= "Cupón: 15.50%";
+              } else  if (valor === 'producto3') {
+                  aplicacion.campoTexto.onclick = aplicacion.funcion3;
+                  document.getElementById('codigo').innerHTML= "Código Sicet: DPBS01632-0011";
+                  document.getElementById('emision').innerHTML= "Fecha de Emisión: 24/02/2015";
+                  document.getElementById('vencimiento').innerHTML= "Fecha de Vencimiento: 30/03/2028";
+                  document.getElementById('cupon').innerHTML= "Cupón: 15.25%";
+              } else  if (valor === 'producto4') {
+                  aplicacion.campoTexto.onclick = aplicacion.funcion4;
+                  document.getElementById('codigo').innerHTML= "Código Sicet: DPBS02909-0017";
+                  document.getElementById('emision').innerHTML= "Fecha de Emisión: 13/06/2017";
+                  document.getElementById('vencimiento').innerHTML= "Fecha de Vencimiento: 21/09/2034";
+                  document.getElementById('cupon').innerHTML= "Cupón: 14.00%";
+              } else  if (valor === 'producto5') {
+                  aplicacion.campoTexto.onclick = aplicacion.funcion5;
+                  document.getElementById('codigo').innerHTML= "Código Sicet: DPBS02909-0035";
+                  document.getElementById('emision').innerHTML= "Fecha de Emisión: 13/06/2017";
+                  document.getElementById('vencimiento').innerHTML= "Fecha de Vencimiento: 27/09/2035";
+                  document.getElementById('cupon').innerHTML= "Cupón: 13.75%";
+              } else  if (valor === 'producto6') {
+                  aplicacion.campoTexto.onclick = aplicacion.funcion6;
+                  document.getElementById('codigo').innerHTML= "Código Sicet: DPBS09345-0032";
+                  document.getElementById('emision').innerHTML= "Fecha de Emisión: 08/01/2013";
+                  document.getElementById('vencimiento').innerHTML= "Fecha de Vencimiento: 19/01/2023";
+                  document.getElementById('cupon').innerHTML= "Cupón: 14.80%";
+              } else  if (valor === 'producto7') {
+                  aplicacion.campoTexto.onclick = aplicacion.funcion7;
+                  document.getElementById('codigo').innerHTML= "Código Sicet: DPBS02909-0044";
+                  document.getElementById('emision').innerHTML= "Fecha de Emisión: 13/06/2017";
+                  document.getElementById('vencimiento').innerHTML= "Fecha de Vencimiento: 15/03/2035";
+                  document.getElementById('cupon').innerHTML= "Cupón: 13.67%";
+              } else  if (valor === 'producto8') {
+                  aplicacion.campoTexto.onclick = aplicacion.funcion8;
+                  document.getElementById('codigo').innerHTML= "Código Sicet: DPBS01632-0039";
+                  document.getElementById('emision').innerHTML= "Fecha de Emisión: 24/02/2015";
+                  document.getElementById('vencimiento').innerHTML= "Fecha de Vencimiento: 20/04/2028";
+                  document.getElementById('cupon').innerHTML= "Cupón: 15.25%";
+              } else  if (valor === 'producto9') {
+                  aplicacion.campoTexto.onclick = aplicacion.funcion9;
+                  document.getElementById('codigo').innerHTML= "Código Sicet: DPBS02207-0052";
+                  document.getElementById('emision').innerHTML= "Fecha de Emisión: 28/01/2016";
+                  document.getElementById('vencimiento').innerHTML= "Fecha de Vencimiento: 17/06/2032";
+                  document.getElementById('cupon').innerHTML= "Cupón: 14.17%";
+              } else  if (valor === 'producto10') {
+                  aplicacion.campoTexto.onclick = aplicacion.funcion10;
+                  document.getElementById('codigo').innerHTML= "Código Sicet: DPBS02209-0014";
+                  document.getElementById('emision').innerHTML= "Fecha de Emisión: 28/01/2016";
+                  document.getElementById('vencimiento').innerHTML= "Fecha de Vencimiento: 21/07/2033";
+                  document.getElementById('cupon').innerHTML= "Cupón: 14.26%";
+              }
+          },
+
+          asignarEventos : function() {
+              aplicacion.lista.onchange = aplicacion.asignarFuncion;
+              aplicacion.asignarFuncion();
+          }
+      };
+
+      window.onload = function() {
+          aplicacion.campoTexto = document.getElementById('calcular');
+          aplicacion.lista = document.getElementById('clicon');
+          aplicacion.asignarEventos();
+      }
+
+
+        function calcular1()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2024,01,04);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+           var comision = 0.50;
+
+           var fechaEmision = new Date(2017,06,13);
+
+           var diasCaidos = Math.floor((fechaValor - fechaEmision) / (1000*60*60*24));
+
+           var cupon = 16.25;
+
+           var valorNominal = parseFloat(document.getElementById("nominal").value);
+
+           var precio = parseFloat(document.getElementById("precio").value);
+
+           var valorNeto = Math.abs((valorNominal * precio) / 100);
+
+           var valorNetDecimal = valorNeto.toFixed(2);
+
+           var interesesCaidos = Math.abs((valorNominal * cupon * diasCaidos) / 360 / 100);
+
+           var intcaidosDecimal = interesesCaidos.toFixed(2);
+
+           var valorEfectivo = Math.abs(valorNeto + interesesCaidos);
+
+           var valorEfecDecimal = valorEfectivo.toFixed(2);
+
+           var comisionFinal = Math.abs((valorEfectivo * comision) / 100);
+
+           var comiFinDecimal = comisionFinal.toFixed(2);
+
+           var total = Math.abs(valorEfectivo + comisionFinal);
+
+           var totalDecimal = total.toFixed(2);
+
+           var cuponFinal = Math.abs((valorNominal * cupon) / 100);
+
+           var diasVenc = Math.floor((fechaVencimiento - fechaValor) / (1000*60*60*24));
+
+           var diasVencFinal = Math.abs(diasVenc / 360);
+
+           var rendtoAlto = cuponFinal + (valorNominal - valorNeto) / diasVencFinal;
+
+           var rendtoBajo = Math.abs((valorNominal + valorNeto) / 2);
+
+           var rendto = Math.abs((rendtoAlto / rendtoBajo) * 100);
+
+           rendto = rendto.toFixed(2);
+
+           rendto = parseFloat( rendto ).toLocaleString();
+           rendto = rendto.toLocaleString( 'pt-BR' );
+
+           totalDecimal = parseFloat( totalDecimal ).toLocaleString();
+           totalDecimal = totalDecimal.toLocaleString( 'pt-BR' );
+
+           document.getElementById('resultado').innerHTML= "Rendimiento Efectivo: " + rendto + '%';
+           document.getElementById('resultado2').innerHTML="Total a Pagar en Bs: " + totalDecimal;
+
+        }
+
+        function calcular2()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2029,02,15);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+           var comision = 0.50;
+
+           var fechaEmision = new Date(2017,07,31);
+
+           var diasCaidos = Math.floor((fechaValor - fechaEmision) / (1000*60*60*24));
+
+           var cupon = 15.50;
+
+           var valorNominal = parseFloat(document.getElementById("nominal").value);
+
+           var precio = parseFloat(document.getElementById("precio").value);
+
+           var valorNeto = Math.abs((valorNominal * precio) / 100);
+
+           var valorNetDecimal = valorNeto.toFixed(2);
+
+           var interesesCaidos = Math.abs((valorNominal * cupon * diasCaidos) / 360 / 100);
+
+           var intcaidosDecimal = interesesCaidos.toFixed(2);
+
+           var valorEfectivo = Math.abs(valorNeto + interesesCaidos);
+
+           var valorEfecDecimal = valorEfectivo.toFixed(2);
+
+           var comisionFinal = Math.abs((valorEfectivo * comision) / 100)
+
+           var comiFinDecimal = comisionFinal.toFixed(2);
+
+           var total = Math.abs(valorEfectivo + comisionFinal);
+
+           var totalDecimal = total.toFixed(2);
+
+           var cuponFinal = Math.abs((valorNominal * cupon) / 100);
+
+           var diasVenc = Math.floor((fechaVencimiento - fechaValor) / (1000*60*60*24));
+
+           var diasVencFinal = Math.abs(diasVenc / 360);
+
+           var rendtoAlto = cuponFinal + (valorNominal - valorNeto) / diasVencFinal;
+
+           var rendtoBajo = Math.abs((valorNominal + valorNeto) / 2);
+
+           var rendto = Math.abs((rendtoAlto / rendtoBajo) * 100);
+
+           rendto = rendto.toFixed(2);
+
+           rendto = parseFloat( rendto ).toLocaleString();
+           rendto = rendto.toLocaleString( 'pt-BR' );
+
+           totalDecimal = parseFloat( totalDecimal ).toLocaleString();
+           totalDecimal = totalDecimal.toLocaleString( 'pt-BR' );
+
+           document.getElementById('resultado').innerHTML= "Rendimiento Efectivo: " + rendto + '%';
+           document.getElementById('resultado2').innerHTML="Total a Pagar en Bs: " + totalDecimal;
+        }
+
+        function calcular3()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2028,03,30);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+           var comision = 0.50;
+
+           var fechaEmision = new Date(2017,06,13);
+
+           var diasCaidos = Math.floor((fechaValor - fechaEmision) / (1000*60*60*24));
+
+           var cupon = 15.25;
+
+           var valorNominal = parseFloat(document.getElementById("nominal").value);
+
+           var precio = parseFloat(document.getElementById("precio").value);
+
+           var valorNeto = Math.abs((valorNominal * precio) / 100);
+
+           var valorNetDecimal = valorNeto.toFixed(2);
+
+           var interesesCaidos = Math.abs((valorNominal * cupon * diasCaidos) / 360 / 100);
+
+           var intcaidosDecimal = interesesCaidos.toFixed(2);
+
+           var valorEfectivo = Math.abs(valorNeto + interesesCaidos);
+
+           var valorEfecDecimal = valorEfectivo.toFixed(2);
+
+           var comisionFinal = Math.abs((valorEfectivo * comision) / 100)
+
+           var comiFinDecimal = comisionFinal.toFixed(2);
+
+           var total = Math.abs(valorEfectivo + comisionFinal);
+
+           var totalDecimal = total.toFixed(2);
+
+           var cuponFinal = Math.abs((valorNominal * cupon) / 100);
+
+           var diasVenc = Math.floor((fechaVencimiento - fechaValor) / (1000*60*60*24));
+
+           var diasVencFinal = Math.abs(diasVenc / 360);
+
+           var rendtoAlto = cuponFinal + (valorNominal - valorNeto) / diasVencFinal;
+
+           var rendtoBajo = Math.abs((valorNominal + valorNeto) / 2);
+
+           var rendto = Math.abs((rendtoAlto / rendtoBajo) * 100);
+
+           rendto = rendto.toFixed(2);
+
+           rendto = parseFloat( rendto ).toLocaleString();
+           rendto = rendto.toLocaleString( 'pt-BR' );
+
+           totalDecimal = parseFloat( totalDecimal ).toLocaleString();
+           totalDecimal = totalDecimal.toLocaleString( 'pt-BR' );
+
+           document.getElementById('resultado').innerHTML= "Rendimiento Efectivo: " + rendto + '%';
+           document.getElementById('resultado2').innerHTML="Total a Pagar en Bs: " + totalDecimal;
+        }
+
+        function calcular4()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2034,09,21);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+           var comision = 0.50;
+
+           var fechaEmision = new Date(2017,06,20);
+
+           var diasCaidos = Math.floor((fechaValor - fechaEmision) / (1000*60*60*24));
+
+           var cupon = 14.00;
+
+           var valorNominal = parseFloat(document.getElementById("nominal").value);
+
+           var precio = parseFloat(document.getElementById("precio").value);
+
+           var valorNeto = Math.abs((valorNominal * precio) / 100);
+
+           var valorNetDecimal = valorNeto.toFixed(2);
+
+           var interesesCaidos = Math.abs((valorNominal * cupon * diasCaidos) / 360 / 100);
+
+           var intcaidosDecimal = interesesCaidos.toFixed(2);
+
+           var valorEfectivo = Math.abs(valorNeto + interesesCaidos);
+
+           var valorEfecDecimal = valorEfectivo.toFixed(2);
+
+           var comisionFinal = Math.abs((valorEfectivo * comision) / 100)
+
+           var comiFinDecimal = comisionFinal.toFixed(2);
+
+           var total = Math.abs(valorEfectivo + comisionFinal);
+
+           var totalDecimal = total.toFixed(2);
+
+           var cuponFinal = Math.abs((valorNominal * cupon) / 100);
+
+           var diasVenc = Math.floor((fechaVencimiento - fechaValor) / (1000*60*60*24));
+
+           var diasVencFinal = Math.abs(diasVenc / 360);
+
+           var rendtoAlto = cuponFinal + (valorNominal - valorNeto) / diasVencFinal;
+
+           var rendtoBajo = Math.abs((valorNominal + valorNeto) / 2);
+
+           var rendto = Math.abs((rendtoAlto / rendtoBajo) * 100);
+
+           rendto = rendto.toFixed(2);
+
+           rendto = parseFloat( rendto ).toLocaleString();
+           rendto = rendto.toLocaleString( 'pt-BR' );
+
+           totalDecimal = parseFloat( totalDecimal ).toLocaleString();
+           totalDecimal = totalDecimal.toLocaleString( 'pt-BR' );
+
+           document.getElementById('resultado').innerHTML= "Rendimiento Efectivo: " + rendto + '%';
+           document.getElementById('resultado2').innerHTML="Total a Pagar en Bs: " + totalDecimal;
+        }
+
+        function calcular5()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2035,09,27);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+           var comision = 0.50;
+
+           var fechaEmision = new Date(2017,07,10);
+
+           var diasCaidos = Math.floor((fechaValor - fechaEmision) / (1000*60*60*24));
+
+           var cupon = 13.75;
+
+           var valorNominal = parseFloat(document.getElementById("nominal").value);
+
+           var precio = parseFloat(document.getElementById("precio").value);
+
+           var valorNeto = Math.abs((valorNominal * precio) / 100);
+
+           var valorNetDecimal = valorNeto.toFixed(2);
+
+           var interesesCaidos = Math.abs((valorNominal * cupon * diasCaidos) / 360 / 100);
+
+           var intcaidosDecimal = interesesCaidos.toFixed(2);
+
+           var valorEfectivo = Math.abs(valorNeto + interesesCaidos);
+
+           var valorEfecDecimal = valorEfectivo.toFixed(2);
+
+           var comisionFinal = Math.abs((valorEfectivo * comision) / 100)
+
+           var comiFinDecimal = comisionFinal.toFixed(2);
+
+           var total = Math.abs(valorEfectivo + comisionFinal);
+
+           var totalDecimal = total.toFixed(2);
+
+           var cuponFinal = Math.abs((valorNominal * cupon) / 100);
+
+           var diasVenc = Math.floor((fechaVencimiento - fechaValor) / (1000*60*60*24));
+
+           var diasVencFinal = Math.abs(diasVenc / 360);
+
+           var rendtoAlto = cuponFinal + (valorNominal - valorNeto) / diasVencFinal;
+
+           var rendtoBajo = Math.abs((valorNominal + valorNeto) / 2);
+
+           var rendto = Math.abs((rendtoAlto / rendtoBajo) * 100);
+
+           rendto = rendto.toFixed(2);
+
+           rendto = parseFloat( rendto ).toLocaleString();
+           rendto = rendto.toLocaleString( 'pt-BR' );
+
+           totalDecimal = parseFloat( totalDecimal ).toLocaleString();
+           totalDecimal = totalDecimal.toLocaleString( 'pt-BR' );
+
+           document.getElementById('resultado').innerHTML= "Rendimiento Efectivo: " + rendto + '%';
+           document.getElementById('resultado2').innerHTML="Total a Pagar en Bs: " + totalDecimal;
+        }
+
+        function calcular6()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2023,01,19);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+           var comision = 0.50;
+
+           var fechaEmision = new Date(2017,06,27);
+
+           var diasCaidos = Math.floor((fechaValor - fechaEmision) / (1000*60*60*24));
+
+           var cupon = 14.80;
+
+           var valorNominal = parseFloat(document.getElementById("nominal").value);
+
+           var precio = parseFloat(document.getElementById("precio").value);
+
+           var valorNeto = Math.abs((valorNominal * precio) / 100);
+
+           var valorNetDecimal = valorNeto.toFixed(2);
+
+           var interesesCaidos = Math.abs((valorNominal * cupon * diasCaidos) / 360 / 100);
+
+           var intcaidosDecimal = interesesCaidos.toFixed(2);
+
+           var valorEfectivo = Math.abs(valorNeto + interesesCaidos);
+
+           var valorEfecDecimal = valorEfectivo.toFixed(2);
+
+           var comisionFinal = Math.abs((valorEfectivo * comision) / 100)
+
+           var comiFinDecimal = comisionFinal.toFixed(2);
+
+           var total = Math.abs(valorEfectivo + comisionFinal);
+
+           var totalDecimal = total.toFixed(2);
+
+           var cuponFinal = Math.abs((valorNominal * cupon) / 100);
+
+           var diasVenc = Math.floor((fechaVencimiento - fechaValor) / (1000*60*60*24));
+
+           var diasVencFinal = Math.abs(diasVenc / 360);
+
+           var rendtoAlto = cuponFinal + (valorNominal - valorNeto) / diasVencFinal;
+
+           var rendtoBajo = Math.abs((valorNominal + valorNeto) / 2);
+
+           var rendto = Math.abs((rendtoAlto / rendtoBajo) * 100);
+
+           rendto = rendto.toFixed(2);
+
+           rendto = parseFloat( rendto ).toLocaleString();
+           rendto = rendto.toLocaleString( 'pt-BR' );
+
+           totalDecimal = parseFloat( totalDecimal ).toLocaleString();
+           totalDecimal = totalDecimal.toLocaleString( 'pt-BR' );
+
+           document.getElementById('resultado').innerHTML= "Rendimiento Efectivo: " + rendto + '%';
+           document.getElementById('resultado2').innerHTML="Total a Pagar en Bs: " + totalDecimal;
+        }
+
+        function calcular7()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2035,03,15);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+           var comision = 0.50;
+
+           var fechaEmision = new Date(2017,07,10);
+
+           var diasCaidos = Math.floor((fechaValor - fechaEmision) / (1000*60*60*24));
+
+           var cupon = 13.67;
+
+           var valorNominal = parseFloat(document.getElementById("nominal").value);
+
+           var precio = parseFloat(document.getElementById("precio").value);
+
+           var valorNeto = Math.abs((valorNominal * precio) / 100);
+
+           var valorNetDecimal = valorNeto.toFixed(2);
+
+           var interesesCaidos = Math.abs((valorNominal * cupon * diasCaidos) / 360 / 100);
+
+           var intcaidosDecimal = interesesCaidos.toFixed(2);
+
+           var valorEfectivo = Math.abs(valorNeto + interesesCaidos);
+
+           var valorEfecDecimal = valorEfectivo.toFixed(2);
+
+           var comisionFinal = Math.abs((valorEfectivo * comision) / 100)
+
+           var comiFinDecimal = comisionFinal.toFixed(2);
+
+           var total = Math.abs(valorEfectivo + comisionFinal);
+
+           var totalDecimal = total.toFixed(2);
+
+           var cuponFinal = Math.abs((valorNominal * cupon) / 100);
+
+           var diasVenc = Math.floor((fechaVencimiento - fechaValor) / (1000*60*60*24));
+
+           var diasVencFinal = Math.abs(diasVenc / 360);
+
+           var rendtoAlto = cuponFinal + (valorNominal - valorNeto) / diasVencFinal;
+
+           var rendtoBajo = Math.abs((valorNominal + valorNeto) / 2);
+
+           var rendto = Math.abs((rendtoAlto / rendtoBajo) * 100);
+
+           rendto = rendto.toFixed(2);
+
+           rendto = parseFloat( rendto ).toLocaleString();
+           rendto = rendto.toLocaleString( 'pt-BR' );
+
+           totalDecimal = parseFloat( totalDecimal ).toLocaleString();
+           totalDecimal = totalDecimal.toLocaleString( 'pt-BR' );
+
+           document.getElementById('resultado').innerHTML= "Rendimiento Efectivo: " + rendto + '%';
+           document.getElementById('resultado2').innerHTML="Total a Pagar en Bs: " + totalDecimal;
+        }
+
+        function calcular8()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2028,04,20);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+           var comision = 0.50;
+
+           var fechaEmision = new Date(2017,07,03);
+
+           var diasCaidos = Math.floor((fechaValor - fechaEmision) / (1000*60*60*24));
+
+           var cupon = 15.25;
+
+           var valorNominal = parseFloat(document.getElementById("nominal").value);
+
+           var precio = parseFloat(document.getElementById("precio").value);
+
+           var valorNeto = Math.abs((valorNominal * precio) / 100);
+
+           var valorNetDecimal = valorNeto.toFixed(2);
+
+           var interesesCaidos = Math.abs((valorNominal * cupon * diasCaidos) / 360 / 100);
+
+           var intcaidosDecimal = interesesCaidos.toFixed(2);
+
+           var valorEfectivo = Math.abs(valorNeto + interesesCaidos);
+
+           var valorEfecDecimal = valorEfectivo.toFixed(2);
+
+           var comisionFinal = Math.abs((valorEfectivo * comision) / 100)
+
+           var comiFinDecimal = comisionFinal.toFixed(2);
+
+           var total = Math.abs(valorEfectivo + comisionFinal);
+
+           var totalDecimal = total.toFixed(2);
+
+           var cuponFinal = Math.abs((valorNominal * cupon) / 100);
+
+           var diasVenc = Math.floor((fechaVencimiento - fechaValor) / (1000*60*60*24));
+
+           var diasVencFinal = Math.abs(diasVenc / 360);
+
+           var rendtoAlto = cuponFinal + (valorNominal - valorNeto) / diasVencFinal;
+
+           var rendtoBajo = Math.abs((valorNominal + valorNeto) / 2);
+
+           var rendto = Math.abs((rendtoAlto / rendtoBajo) * 100);
+
+           rendto = rendto.toFixed(2);
+
+           rendto = parseFloat( rendto ).toLocaleString();
+           rendto = rendto.toLocaleString( 'pt-BR' );
+
+           totalDecimal = parseFloat( totalDecimal ).toLocaleString();
+           totalDecimal = totalDecimal.toLocaleString( 'pt-BR' );
+
+           document.getElementById('resultado').innerHTML= "Rendimiento Efectivo: " + rendto + '%';
+           document.getElementById('resultado2').innerHTML="Total a Pagar en Bs: " + totalDecimal;
+        }
+
+        function calcular9()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2032,06,17);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+           var comision = 0.50;
+
+           var fechaEmision = new Date(2017,06,06);
+
+           var diasCaidos = Math.floor((fechaValor - fechaEmision) / (1000*60*60*24));
+
+           var cupon = 14.17;
+
+           var valorNominal = parseFloat(document.getElementById("nominal").value);
+
+           var precio = parseFloat(document.getElementById("precio").value);
+
+           var valorNeto = Math.abs((valorNominal * precio) / 100);
+
+           var valorNetDecimal = valorNeto.toFixed(2);
+
+           var interesesCaidos = Math.abs((valorNominal * cupon * diasCaidos) / 360 / 100);
+
+           var intcaidosDecimal = interesesCaidos.toFixed(2);
+
+           var valorEfectivo = Math.abs(valorNeto + interesesCaidos);
+
+           var valorEfecDecimal = valorEfectivo.toFixed(2);
+
+           var comisionFinal = Math.abs((valorEfectivo * comision) / 100)
+
+           var comiFinDecimal = comisionFinal.toFixed(2);
+
+           var total = Math.abs(valorEfectivo + comisionFinal);
+
+           var totalDecimal = total.toFixed(2);
+
+           var cuponFinal = Math.abs((valorNominal * cupon) / 100);
+
+           var diasVenc = Math.floor((fechaVencimiento - fechaValor) / (1000*60*60*24));
+
+           var diasVencFinal = Math.abs(diasVenc / 360);
+
+           var rendtoAlto = cuponFinal + (valorNominal - valorNeto) / diasVencFinal;
+
+           var rendtoBajo = Math.abs((valorNominal + valorNeto) / 2);
+
+           var rendto = Math.abs((rendtoAlto / rendtoBajo) * 100);
+
+           rendto = rendto.toFixed(2);
+
+           rendto = parseFloat( rendto ).toLocaleString();
+           rendto = rendto.toLocaleString( 'pt-BR' );
+
+           totalDecimal = parseFloat( totalDecimal ).toLocaleString();
+           totalDecimal = totalDecimal.toLocaleString( 'pt-BR' );
+
+           document.getElementById('resultado').innerHTML= "Rendimiento Efectivo: " + rendto + '%';
+           document.getElementById('resultado2').innerHTML="Total a Pagar en Bs: " + totalDecimal;
+        }
+
+        function calcular10()
+        {
+           var fechaActual = new Date();
+           var dia = document.getElementById("dia").value;
+           var mes = document.getElementById("mes").value;
+           var ano = document.getElementById("ano").value;
+
+           var fechaVencimiento = new Date(2033,07,21);
+
+           mes = mes-1;
+
+           var fechaValor = new Date(ano,mes,dia);
+
+           var comision = 0.50;
+
+           var fechaEmision = new Date(2017,07,10);
+
+           var diasCaidos = Math.floor((fechaValor - fechaEmision) / (1000*60*60*24));
+
+           var cupon = 14.26;
+
+           var valorNominal = parseFloat(document.getElementById("nominal").value);
+
+           var precio = parseFloat(document.getElementById("precio").value);
+
+           var valorNeto = Math.abs((valorNominal * precio) / 100);
+
+           var valorNetDecimal = valorNeto.toFixed(2);
+
+           var interesesCaidos = Math.abs((valorNominal * cupon * diasCaidos) / 360 / 100);
+
+           var intcaidosDecimal = interesesCaidos.toFixed(2);
+
+           var valorEfectivo = Math.abs(valorNeto + interesesCaidos);
+
+           var valorEfecDecimal = valorEfectivo.toFixed(2);
+
+           var comisionFinal = Math.abs((valorEfectivo * comision) / 100)
+
+           var comiFinDecimal = comisionFinal.toFixed(2);
+
+           var total = Math.abs(valorEfectivo + comisionFinal);
+
+           var totalDecimal = total.toFixed(2);
+
+           var cuponFinal = Math.abs((valorNominal * cupon) / 100);
+
+           var diasVenc = Math.floor((fechaVencimiento - fechaValor) / (1000*60*60*24));
+
+           var diasVencFinal = Math.abs(diasVenc / 360);
+
+           var rendtoAlto = cuponFinal + (valorNominal - valorNeto) / diasVencFinal;
+
+           var rendtoBajo = Math.abs((valorNominal + valorNeto) / 2);
+
+           var rendto = Math.abs((rendtoAlto / rendtoBajo) * 100);
+
+           rendto = rendto.toFixed(2);
+
+           rendto = parseFloat( rendto ).toLocaleString();
+           rendto = rendto.toLocaleString( 'pt-BR' );
+
+           totalDecimal = parseFloat( totalDecimal ).toLocaleString();
+           totalDecimal = totalDecimal.toLocaleString( 'pt-BR' );
+
+           document.getElementById('resultado').innerHTML= "Rendimiento Efectivo: " + rendto + '%';
+           document.getElementById('resultado2').innerHTML="Total a Pagar en Bs: " + totalDecimal;
+        }
+
+      $(document).ready(function() {
+          $('select').material_select();
+        });

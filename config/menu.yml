@@ -1,0 +1,103 @@
+menu:
+  dashboard:
+    name: dashboard
+    url_path: /admin/dashboard
+    icon: dashboard
+    current: ['keppler_ga_dashboard/dashboard']
+  user:
+    name: users
+    url_path: /admin/users
+    icon: account_circle
+    current: ["admin/users"]
+    model: User
+  seo:
+    name: SEO
+    current: ['admin/meta_tags', 'admin/google_adwords']
+    icon: code
+    model: MetaTag
+    submenu:
+      - meta_tags:
+          name: 'Title & Metas'
+          url_path: /admin/meta_tags
+          current: ['admin/meta_tags']
+      - google_adwords:
+          name: Google Adwords
+          url_path: /admin/google_adwords
+          current: ['admin/google_adwords']
+  keppler_messages:
+    name: keppler messages
+    current: ['keppler_contact_us/messages', 'keppler_contact_us/message_settings']
+    icon: email
+    model: KepplerContactUs::Message
+    submenu:
+      - messages:
+          name: Messages
+          url_path: /admin/messages
+          current: ['keppler_contact_us/messages']
+      - message_settings:
+          name: Message Settings
+          url_path: /admin/message_settings
+          current: ['keppler_contact_us/message_settings']
+
+
+  indicator:
+    name: Indicadores
+    url_path: /admin/indicators
+    icon: trending_up
+    current: ['admin/indicators']
+    model: Indicator
+  banner:
+    name: banners
+    url_path: /admin/banners
+    icon: perm_media
+    current: ['admin/banners']
+    model: Banner
+  chart:
+    name: Estadisticas
+    url_path: /admin/charts
+    icon: equalizer
+    current: ['admin/charts']
+    model: Chart
+
+  # customize:
+  #   name: keppler design
+  #   icon: color_lens
+  #   current: ['admin/customizes']
+  #   model: Customize
+  #   submenu:
+  #     - customize:
+  #         name: frontend templates
+  #         url_path: /admin/customizes
+  #         current: ['admin/customizes']
+  #     - appearance:
+  #         name: admin appearance
+  #         url_path: /admin/settings/appearance
+  #         current: ['appearance']
+  google_analytics_track:
+    name: google analytics tracks
+    url_path: /admin/google_analytics_tracks
+    icon: insert_chart
+    current: ['admin/google_analytics_tracks']
+    model: GoogleAnalyticsTrack
+  setting:
+    name: setting
+    current: ['admin/settings']
+    icon: settings
+    model: Setting
+    submenu:
+      - basic_information:
+          name: Basic information
+          url_path: /admin/settings/basic_information
+          current: ['basic_information']
+      - smtp_setting:
+          name: Email setting (SMTP)
+          url_path: /admin/settings/email_setting
+          current: ['email_setting']
+      - google_analytics_setting:
+          name: Google analytics
+          url_path: /admin/settings/google_analytics_setting
+          current: ['google_analytics_setting']
+      - social_account:
+          name: Social Accounts
+          url_path: /admin/settings/social_accounts
+          current: ['social_accounts']

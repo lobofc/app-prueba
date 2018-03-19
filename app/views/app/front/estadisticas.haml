@@ -1,0 +1,342 @@
+!!!
+%html
+  %head
+    = render 'app/layouts/head'
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bolsa Pública
+    %meta{:charset => "utf-8"}/
+    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    %link{:href => "assets/css/style.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
+    %script{:src => "assets/js/amcharts.js", :type => "text/javascript"}
+    %script{:src => "assets/js/serial.js", :type => "text/javascript"}
+    %script{:src => "assets/js/papaparse.js"}
+
+    /[if IE] <link rel="stylesheet" href="css/ie.css">
+    /[if lte IE 9] <script type="text/javascript" src="assets/css/ie.js"></script>
+  %body
+    .col.l12
+      .cintillo
+        %img{:src => "assets/img/cintillo.jpg"}/
+    .navbar-fixed
+      %nav
+        .nav-wrapper.white
+          %a.brand-logo{:href => "/index"}
+            %img{:src => "assets/img/logo.png"}/
+          %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
+            %i.material-icons.grey-text.text-darken-4 menu
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.white-text{:href => "/contacto"} Contacto
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-3.white-text{:href => "/estadisticas"} Estadísticas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-4.white-text{:href => "/tarifas"} Tarifas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-3.white-text{:href => "/quienessomos"} Quienes Somos
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-4.white-text{:href => "/index"} Inicio
+          %ul#mobile-demo.side-nav
+            %li
+              %a{:href => "/index"} Inicio
+            %li
+              %a{:href => "/quienessomos"} Quienes Somos
+            %li
+              %a{:href => "/tarifas"} Tarifas
+            %li
+              %a{:href => "/estadisticas"} Estadísticas
+            %li
+              %a{:href => "/contacto"} Contacto
+    .marquee.col.s12
+      %p
+        - @indicators.each do |indicator|
+          %span.indice= "#{indicator.name}:"
+          =indicator.value
+    -@charts.each_with_index do |chart, x|
+      .row
+        .col.l12
+          .center-f
+            %h6.title-chart= "#{chart.name}"
+        .col.l12
+          .center-f
+            .chart{id: "chartdiv-#{x+1}", :style => "width: 80%; height: 400px;"}
+
+    %footer.page-footer
+      .container
+        .row
+          .col.s12.m6
+            %h5.white-text Bolsa Pública de Valores Bicentenaria
+            %p.grey-text.text-lighten-4
+              Av. Francisco de Miranda, Edif. Torre Europa, Piso Nivel C, Of. S/N
+              %br/
+              Urb. El Rosal, Caracas(Chacao), Miranda. Zona Postal: 1060.
+              %br/
+              %b Horario de atención al público:
+              De 8:00 a.m. a 4:30 p.m.
+              %br/
+              %b Teléfono:
+              0212-9558800.
+            %br/
+            %ul.social
+              %li
+                %h6 Redes Sociales:
+                %br/
+              %li
+                %a.icon-facebook.img-circle{:href => "https://www.facebook.com/bolsapublicave/", :target => "_blank"}
+                %a.icon-twitter.img-circle{:href => "https://twitter.com/Bolsa_Publica", :target => "_blank"}
+                %a.icon-instagram.img-circle{:href => "https://www.instagram.com/bolsa_publica/", :target => "_blank"}
+          .col.l4.offset-l2.s12
+            %h5.white-text Menú
+            %ul
+              %li
+                %a.grey-text.text-lighten-3{:href => "/documents/LCFT.pdf", :target => "blank"} Prevención y control
+              %li
+                %a.grey-text.text-lighten-3{:href => "/atencion"} Atención al Ciudadano
+              %li
+                %a.grey-text.text-lighten-3{:href => "/marcolegal"} Marco Legal
+              %li
+                %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve/snv/site/glosario_terminos.php"} Glosario de términos
+              %h5.white-text Enlaces de interés
+              %ul
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.bcv.org.ve", :target => "blank"} Banco Central de Venezuela
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve", :target => "blank"} Superintendencia Nacional de Valores
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.mppef.gob.ve", :target => "blank"} Ministerio del Poder Popular de Economía y Finanzas
+      .footer-copyright
+        .container
+          © 2017 Copyright Bolsa Pública de Valores Bicentenaria / RIF: G-20009677-2
+    %script{:src => "assets/js/jquery-3.2.1.min.js", :type => "text/javascript"}
+    %script{:src => "assets/js/materialize.min.js", :type => "text/javascript"}
+:javascript
+  var ghost;
+  var path = #{raw @pathCSV};
+  var id = #{raw @arrayId};
+  console.log(id);
+  var primer_valor;
+  var segundo_valor;
+
+
+  function makeChart(route, counter, ghost, primer_valor, segundo_valor){
+    var chartpath = route
+    var charts = counter
+    var counter = "#{@counter}"
+    // console.log(chartpath);
+    var rowSupremo = [];
+    var chart;
+    var chartData = [];
+    var chartCursor;
+
+    AmCharts.ready(function() {
+      // SERIAL CHART
+      chart = new AmCharts.AmSerialChart();
+      chart.pathToImages = "/documents/";
+      chart.dataProvider = chartData;
+      chart.categoryField = "date";
+      chart.dataDateFormat = "DD/MM/YYYY";
+      // listen for "dataUpdated" event (fired when chart is rendered) and call zoomChart method when it happens
+      chart.addListener("dataUpdated", zoomChart);
+      // AXES
+      // category
+      var categoryAxis = chart.categoryAxis;
+      categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
+      categoryAxis.minPeriod = "DD"; // our data is daily, so we set minPeriod to DD
+      categoryAxis.dashLength = 1;
+      categoryAxis.gridAlpha = 0.15;
+      categoryAxis.minorGridEnabled = true;
+      categoryAxis.axisColor = "#DADADA";
+
+      // value
+      var valueAxis = new AmCharts.ValueAxis();
+      valueAxis.axisAlpha = 0.2;
+      valueAxis.dashLength = 1;
+      chart.addValueAxis(valueAxis);
+
+      // GRAPH
+      var graph = new AmCharts.AmGraph();
+      graph.title = "Blue Line";
+      graph.valueField = "venta";
+      graph.bullet = "round";
+      graph.bulletBorderColor = "#FFFFFF";
+      graph.bulletBorderThickness = 2;
+      graph.bulletBorderAlpha = 1;
+      graph.lineThickness = 2;
+      graph.lineColor = "#b5030d";
+      graph.negativeLineColor = "#0352b5";
+      graph.balloonText = `[[category]]<br><b><span style='font-size:14px;'>${segundo_valor}: [[value]]</span></b`;
+      graph.hideBulletsCount = 50; // this makes the chart to hide bullets when there are more than 50 series in selection
+      // console.log(graph);
+      chart.addGraph(graph);
+
+      var graph = new AmCharts.AmGraph();
+      graph.title = "red line";
+      graph.valueField = "compra";
+      graph.yField = "holis"
+      graph.bullet = "round";
+      graph.bulletBorderColor = "#FFFFFF";
+      graph.bulletBorderThickness = 2;
+      graph.bulletBorderAlpha = 1;
+      graph.lineThickness = 2;
+      graph.lineColor = "rgb(32, 172, 212)";
+      graph.negativeLineColor = "#0352b5";
+      graph.balloonText = `[[category]]<br><b><span style='font-size:14px;'>${primer_valor}: [[value]]</span></b`;
+      graph.hideBulletsCount = 50; // this makes the chart to hide bullets when there are more than 50 series in selection
+      // console.log(graph);
+      chart.addGraph(graph);
+
+      // CURSOR
+      chartCursor = new AmCharts.ChartCursor();
+      chartCursor.cursorPosition = "mouse";
+      chart.addChartCursor(chartCursor);
+
+      // SCROLLBAR
+      var chartScrollbar = new AmCharts.ChartScrollbar();
+      chartScrollbar.graph = graph;
+      chartScrollbar.scrollbarHeight = 40;
+      chartScrollbar.color = "#FFFFFF";
+      chartScrollbar.autoGridCount = true;
+      chartScrollbar.title = "holis"
+      chart.addChartScrollbar(chartScrollbar);
+
+      // WRITE
+      chart.write("chartdiv-"+ghost);
+
+      parseCSV(chartpath);
+    });
+
+
+    function parseCSV(csv) {
+
+      Papa.parse(chartpath, {
+        download: true,
+        step: function(row, parser) {
+          var snowden = row.data;
+          // console.log(snowden);
+          llenarArray(snowden);
+        },
+        complete: function(results, file) {
+          rowSupremo.reverse().shift();
+          if (rowSupremo[0][0].length==3){llenarChart(rowSupremo);}
+          else if (rowSupremo[0][0].length==2){llenarChartUno(rowSupremo);}
+          else{console.log("CHART INVALIDO");}
+          console.log(rowSupremo);
+          console.log("Parsing complete:", results, file);
+        }
+      });
+
+      function llenarArray(data){
+        rowSupremo.push(data);
+      }
+
+      function llenarChart(data){
+        for (var i = 0; i < data.length; i++) {
+
+          for (let a=0; a<= rowSupremo[i][0][1].length; a++){
+  					if (rowSupremo[i][0][1][a] == "."){
+  						rowSupremo[i][0][1] = rowSupremo[i][0][1].split(".").join("");
+  					}
+  				}
+          for (let a=0; a<= rowSupremo[i][0][1].length; a++){
+  					if (rowSupremo[i][0][2][a] == "."){
+  						rowSupremo[i][0][2] = rowSupremo[i][0][2].split(".").join("");
+  					}
+  				}
+
+          rowSupremo[i][0][1] = rowSupremo[i][0][1].replace(/,/g, '.');
+          rowSupremo[i][0][2] = rowSupremo[i][0][2].replace(/,/g, '.');
+
+          var date = rowSupremo[i][0][0];
+          var value = rowSupremo[i][0][1];
+          var value2 = rowSupremo[i][0][2];
+
+          var dataObject = {
+            date: date,
+            compra: value,
+            venta: value2
+          };
+          // add object to chartData array
+          chartData.push(dataObject);
+          // console.log(dataObject);
+        }
+        chart.validateData();
+      }
+      function llenarChartUno(data){
+        for (var i = 0; i < data.length; i++) {
+
+          for (let a=0; a<= rowSupremo[i][0][1].length; a++){
+  					if (rowSupremo[i][0][1][a] == "."){
+  						rowSupremo[i][0][1] = rowSupremo[i][0][1].split(".").join("");
+  					}
+  				}
+
+          rowSupremo[i][0][1] = rowSupremo[i][0][1].replace(/,/g, '.');
+
+          var date = rowSupremo[i][0][0];
+          var value = rowSupremo[i][0][1];
+          var dataObject = {
+            date: date,
+            compra: value,
+          };
+          // add object to chartData array
+          chartData.push(dataObject);
+          // console.log(dataObject);
+        }
+        chart.validateData();
+      }
+
+    }
+
+    // this method is called when chart is first inited as we listen for "dataUpdated" event
+    function zoomChart() {
+      // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
+      chart.zoomToIndexes(chartData.length - 40, chartData.length - 1);
+    }
+
+    // changes cursor mode from pan to select
+    function setPanSelect() {
+      if (document.getElementById("rb1").checked) {
+        chartCursor.pan = false;
+        chartCursor.zoomable = true;
+
+      } else {
+        chartCursor.pan = true;
+      }
+        chart.validateNow();
+    }
+  }
+
+  for (let i = 1; i<= #{@counter}; i++){
+    console.log(path[i-1]);
+    primer_valor = id.shift();
+    segundo_valor = id.shift();
+    makeChart(path[i-1], "#{@counter}", ghost = i, primer_valor, segundo_valor);
+  }
+
+:scss
+  .center-f {
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .title-chart{
+    font-size: 20px;
+    margin-top: 40px;
+    letter-spacing: 1px;
+    color: #c62828;
+    font-weight: 600;
+  }

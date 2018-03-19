@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    = render 'app/layouts/head'
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bolsa Pública
+    %meta{:charset => "utf-8"}/       
+    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/    
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/panel.css", :rel => "stylesheet", :type => "text/css"}/
+%body{:bgcolor => "#eeeeee"}
+  %nav
+    .nav-wrapper.red.darken-4.navtop
+      %a.brand-logo{:href => "#"} Concurso Público para Ingreso de Personal
+  .container.titlelist
+    .row
+      %h3 Crear Nuevo
+
+= render 'form'
+
+

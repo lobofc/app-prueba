@@ -1,0 +1,30 @@
+%tr{ id: "row-#{chart.id}" }
+	- if can? :destroy_multiple, Chart
+		%td.center.item-check
+			= link_to '', admin_chart_path(chart), remote: true, class: 'show-row'
+			%input{ type:'checkbox', class: 'filled-in', id: "checkbox-#{chart.id}", 'checklist-model'=>'check', 'checklist-value'=>"#{chart.id}", 'ng-click'=>"selectByCheck(#{@objects.size})"}
+			%label{ for: "checkbox-#{chart.id}" }
+
+	%td.center
+		= link_to '', admin_chart_path(chart, search: @query), remote: true, class: 'show-row'
+		%span
+			= chart.name
+	%td.center
+		= link_to '', admin_chart_path(chart, search: @query), remote: true, class: 'show-row'
+		%span
+			= chart.file.to_s.split("/").last
+	%td.center.btn-w5
+		= link_to admin_chart_path(chart), class: 'btn-floating waves-effect btn-flat', "data-no-turbolink" => true, "data-toggle" => 'tooltip', "data-placement" => 'bottom', title: 'Ver gráficas' do
+			= material_icon.md_24.remove_red_eye.css_class('md-dark')
+	- if can? :update, Chart
+		%td.center.btn-w5
+			= link_to edit_admin_chart_path(chart), class: 'btn-floating btn-flat', "data-toggle" => 'tooltip', "data-placement" => 'bottom', title: 'Editar' do
+				= material_icon.md_18.create.css_class('md-dark')
+	- if can? :clone, Chart
+		%td.center.btn-w5
+			= link_to admin_chart_clone_path(chart), class: 'btn-floating waves-effect btn-flat', "data-toggle" => 'tooltip', "data-placement" => 'bottom', title: 'Clonar' do
+				= material_icon.md_24.content_copy.css_class('md-dark')
+	- if can? :delete, Chart
+		%td.center.btn-w5{style:'padding-right: 20px'}
+			= link_to admin_chart_path(chart), class: 'btn-floating btn-flat', "data-toggle" => 'tooltip', "data-placement" => 'bottom', title: 'Borrar', method: :delete, data: { confirm: t('keppler.messages.data_confirm') } do
+				= material_icon.md_18.delete.css_class('md-dark')

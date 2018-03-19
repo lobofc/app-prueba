@@ -1,0 +1,160 @@
+!!!
+%html
+  %head
+    = render 'app/layouts/head'
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bolsa Pública
+    %meta{:charset => "utf-8"}/
+    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
+  %body
+    .col.l12
+      .cintillo
+        %img{:src => "assets/img/cintillo.jpg"}/
+    .navbar-fixed
+      %nav
+        .nav-wrapper.white
+          %a.brand-logo{:href => "/index"}
+            %img{:src => "assets/img/logo.png"}/
+          %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
+            %i.material-icons.grey-text.text-darken-4 menu
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.white-text{:href => "/contacto"} Contacto
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-3.white-text{:href => "/estadisticas"} Estadísticas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-4.white-text{:href => "/tarifas"} Tarifas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-3.white-text{:href => "/quienessomos"} Quienes Somos
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-4.white-text{:href => "/index"} Inicio
+          %ul#mobile-demo.side-nav
+            %li
+              %a{:href => "/index"} Inicio
+            %li
+              %a{:href => "/quienessomos"} Quienes Somos
+            %li
+              %a{:href => "/tarifas"} Tarifas
+            %li
+              %a{:href => "/estadisticas"} Estadísticas
+            %li
+              %a{:href => "/contacto"} Contacto
+    .container.anidada
+      .row
+        .shadow.col.s12
+          .col.s12
+            %img.responsive-img{:src => "assets/img/estructuracion.jpg"}/
+        .col.s12
+          %table.striped.tablaMargen
+            %thead
+              %tr
+                %th.alto.col.s6.yellow.darken-2
+                  %h5.white-text INSTRUMENTOS DE ESTRUCTURACIÓN
+                %th.alto.col.s6.red.darken-4
+                  %h5.white-text PRINCIPALES CARACTERÍSTICAS
+            %tbody
+              %tr.izquierda
+                %td.col.s6.cambio.justificar
+                  %p
+                    %b Obligaciones Quirografarias:
+                    Son instrumentos de deuda emitidos a plazos mayores a un (1) año, por sociedades mercantiles con garantía hipotecaria o quirografaria negociables en el mercado financiero.
+                %td.col.s6
+                  %ol.cambio
+                    %li
+                      %h6 A mediano y largo plazo (mayor a 1 año)
+                    %li
+                      %h6 Interés fijo o variable
+                    %li
+                      %h6 Con o sin garantía
+              %tr.izquierda
+                %td.col.s6.cambio.justificar
+                  %p
+                    %b Papeles Comerciales:
+                    Son instrumentos de deuda a un plazo menor de un (1) año, emitidos por sociedades mercantiles para financiar necesidades de corto plazo.
+                %td.col.s6
+                  %ol.cambio
+                    %li
+                      %h6 A corto plazo (mayor a 15 días – menor a 360 días
+                    %li
+                      %h6 Rendimiento
+              %tr.izquierda
+                %td.col.s6.cambio.justificar
+                  %p
+                    %b Títulos de Participación:
+                    Instrumento de deuda mediante el cual se transforma un activo no negociable, en un título negociable en el mercado secundario.
+                %td.col.s6
+                  %ol.cambio
+                    %li
+                      %h6 A mediano y largo plazo
+                    %li
+                      %h6 Interés fijo
+                    %li
+                      %h6 El inversionista adquiere la titularidad sobre el activo subyacente
+              %tr.izquierda
+                %td.col.s6.cambio.justificar
+                  %p
+                    %b Acciones:
+                    Capitalización de acciones de una empresa.        
+    %footer.page-footer
+      .container
+        .row
+          .col.s12.m6
+            %h5.white-text Bolsa Pública de Valores Bicentenaria
+            %p.grey-text.text-lighten-4
+              Av. Francisco de Miranda, Edif. Torre Europa, Piso Nivel C, Of. S/N
+              %br/
+              Urb. El Rosal, Caracas(Chacao), Miranda. Zona Postal: 1060.
+              %br/
+              %b Horario de atención al público:
+              De 8:00 a.m. a 4:30 p.m.
+              %br/
+              %b Teléfono:
+              0212-9558800.
+            %br/
+            %ul.social
+              %li
+                %h6 Redes Sociales:
+                %br/
+              %li
+                %a.icon-facebook.img-circle{:href => "https://www.facebook.com/bolsapublicave/", :target => "_blank"}
+                %a.icon-twitter.img-circle{:href => "https://twitter.com/Bolsa_Publica", :target => "_blank"}
+                %a.icon-instagram.img-circle{:href => "https://www.instagram.com/bolsa_publica/", :target => "_blank"}
+          .col.l4.offset-l2.s12
+            %h5.white-text Menú
+            %ul
+              %li
+                %a.grey-text.text-lighten-3{:href => "/documents/LCFT.pdf", :target => "blank"} Prevención y control
+              %li
+                %a.grey-text.text-lighten-3{:href => "/atencion"} Atención al Ciudadano
+              %li
+                %a.grey-text.text-lighten-3{:href => "/marcolegal"} Marco Legal
+              %li
+                %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve/snv/site/glosario_terminos.php"} Glosario de términos
+              %h5.white-text Enlaces de interés
+              %ul
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.bcv.org.ve", :target => "blank"} Banco Central de Venezuela
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve", :target => "blank"} Superintendencia Nacional de Valores
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.mppef.gob.ve", :target => "blank"} Ministerio del Poder Popular de Economía y Finanzas
+      .footer-copyright
+        .container
+          © 2017 Copyright Bolsa Pública de Valores Bicentenaria / RIF: G-20009677-2
+    %script{:src => "assets/js/jquery-3.2.1.min.js", :type => "text/javascript"}
+    %script{:src => "assets/js/materialize.min.js", :type => "text/javascript"}
+    :javascript
+      $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+      })
+
+      $(document).ready(function(){
+          $('.slider').slider();
+        });

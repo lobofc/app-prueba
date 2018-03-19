@@ -1,0 +1,117 @@
+.tablero {
+	border: solid 2px #424242;
+	border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    margin-top: 1%;
+}
+
+.botones {	
+	margin-bottom: 5%; 
+} 
+
+.botones a {
+	margin-top: 20%;
+}
+
+.form {
+	border: solid 2px #424242;
+	border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    margin-top: 1%;    
+}
+
+.etiqueta h6 {
+	font-size: 18px;
+}
+
+.entrada input {
+	margin-right: 2px;
+	border: solid 1px #616161;
+	-webkit-box-sizing: border-box; 
+     -moz-box-sizing: border-box; 
+          box-sizing: border-box;
+}
+
+.campos li {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.campos2 li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: bold;
+}
+
+.send button {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.datos {    
+    margin-bottom: 1%;
+}
+
+.resultado {
+	margin-top: 5%;
+    margin-bottom: 1%;
+}
+
+#resultado2 {
+	font-size: 20px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	border-radius: 10px 0px 0px 10px;
+    -moz-border-radius: 10px 0px 0px 10px;
+    -webkit-border-radius: 10px 0px 0px 10px;
+}
+
+#resultado {
+	font-size: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	border-radius: 0px 10px 10px 0px;
+    -moz-border-radius: 0px 10px 10px 0px;
+    -webkit-border-radius: 0px 10px 10px 0px;
+}
+
+
+.cuadro {
+	margin-top: 10%;	
+	border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    text-align: justify;
+}
+
+.cuadro p {
+	padding: 5px 15px 5px 15px;
+}
+
+.botonPrincipal {
+	margin-top: 5%;
+	margin-bottom: 10%;
+}
+
+.instrucciones h6 {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.letreroFondo {
+	margin-top: 2%;
+}
+
+
+
+
+
+
+
+
+

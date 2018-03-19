@@ -1,0 +1,127 @@
+!!!
+%html
+  %head
+    = render 'app/layouts/head'
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bolsa Pública
+    %meta{:charset => "utf-8"}/
+    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
+  %body
+    .col.l12
+      .cintillo
+        %img{:src => "assets/img/cintillo.jpg"}/
+    .navbar-fixed
+      %nav
+        .nav-wrapper.white
+          %a.brand-logo{:href => "/index"}
+            %img{:src => "assets/img/logo.png"}/
+          %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
+            %i.material-icons.grey-text.text-darken-4 menu
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.white-text{:href => "/contacto"} Contacto
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-3.white-text{:href => "/estadisticas"} Estadísticas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-4.white-text{:href => "/tarifas"} Tarifas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-3.white-text{:href => "/quienessomos"} Quiénes Somos
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-4.white-text{:href => "/index"} Inicio
+          %ul#mobile-demo.side-nav
+            %li
+              %a{:href => "/index"} Inicio
+            %li
+              %a{:href => "/quienessomos"} Quiénes Somos
+            %li
+              %a{:href => "/tarifas"} Tarifas
+            %li
+              %a{:href => "/estadisticas"} Estadísticas
+            %li
+              %a{:href => "/contacto"} Contacto
+    .container.tablaMargen
+      .row
+        .col.s12.m10
+          %h3.marginTitle#contacto_k Contacto
+        = render "keppler_contact_us/messages/form"
+
+        .col.s12.m6.datos
+          %ul
+            %li
+              %p.grey-text.text-darken-4
+                %b Bolsa Pública de Valores Bicentenaria
+            %li
+              %p.grey-text.text-darken-4 Av. Francisco de Miranda, Edif. Torre Europa, Piso Nivel C, Of. S/N, Urb. El Rosal, Caracas(Chacao), Miranda. Zona Postal: 1060.
+            %li
+              %p.grey-text.text-darken-4
+                %b Teléfono:
+                0212-9558800.
+            %li
+              %p.grey-text.text-darken-4
+                %b Correo Electrónico:
+                bpvboac@gmail.com
+      %div
+        %iframe{:allowfullscreen => "", :frameborder => "0", :height => "600", :src => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2332.7007752553764!2d-66.8649368387823!3d10.491249721072316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58fdafcdd757%3A0xd2bf02cc07ec0ce7!2sTorre+Europa%2C+Avenida+Francisco+de+Miranda%2C+Caracas+1060%2C+Miranda!5e0!3m2!1ses!2sve!4v1508472603179", :style => "border:0", :width => "800"}
+    %footer.page-footer
+      .container
+        .row
+          .col.s12.m6
+            %h5.white-text Bolsa Pública de Valores Bicentenaria
+            %p.grey-text.text-lighten-4
+              Av. Francisco de Miranda, Edif. Torre Europa, Piso Nivel C, Of. S/N
+              %br/
+              Urb. El Rosal, Caracas(Chacao), Miranda. Zona Postal: 1060.
+              %br/
+              %b Horario de atención al público:
+              De 8:00 a.m. a 4:30 p.m.
+              %br/
+              %b Teléfono:
+              0212-9558800.
+            %br/
+            %ul.social
+              %li
+                %h6 Redes Sociales:
+                %br/
+              %li
+                %a.icon-facebook.img-circle{:href => "https://www.facebook.com/bolsapublicave/", :target => "_blank"}
+                %a.icon-twitter.img-circle{:href => "https://twitter.com/Bolsa_Publica", :target => "_blank"}
+                %a.icon-instagram.img-circle{:href => "https://www.instagram.com/bolsa_publica/", :target => "_blank"}
+          .col.l4.offset-l2.s12
+            %h5.white-text Menú
+            %ul
+              %li
+                %a.grey-text.text-lighten-3{:href => "/documents/LCFT.pdf", :target => "blank"} Prevención y control
+              %li
+                %a.grey-text.text-lighten-3{:href => "/atencion"} Atención al Ciudadano
+              %li
+                %a.grey-text.text-lighten-3{:href => "/marcolegal"} Marco Legal
+              %li
+                %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve/snv/site/glosario_terminos.php"} Glosario de términos
+              %h5.white-text Enlaces de interés
+              %ul
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.bcv.org.ve", :target => "blank"} Banco Central de Venezuela
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve", :target => "blank"} Superintendencia Nacional de Valores
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.mppef.gob.ve", :target => "blank"} Ministerio del Poder Popular de Economía y Finanzas
+      .footer-copyright
+        .container
+          © 2017 Copyright Bolsa Pública de Valores Bicentenaria / RIF: G-20009677-2
+    %script{:src => "assets/js/jquery-3.2.1.min.js", :type => "text/javascript"}
+    %script{:src => "assets/js/materialize.min.js", :type => "text/javascript"}
+    :javascript
+      $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+      })
+
+      $(document).ready(function(){
+          $('.slider').slider();
+        });

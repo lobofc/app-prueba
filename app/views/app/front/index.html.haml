@@ -1,0 +1,258 @@
+!!!
+%html
+  %head
+    = render 'app/layouts/head'
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bolsa Pública
+    %meta{:charset => "utf-8"}/
+    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    %link{:href => "assets/css/style.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
+
+    /[if IE] <link rel="stylesheet" href="css/ie.css">
+    /[if lte IE 9] <script type="text/javascript" src="assets/css/ie.js"></script>
+  %body
+    .col.l12
+      .cintillo
+        %img{:src => "assets/img/cintillo.jpg"}/
+    .navbar-fixed
+      %nav
+        .nav-wrapper.white
+          %a.brand-logo{:href => "/index"}
+            %img{:src => "assets/img/logo.png"}/
+          %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
+            %i.material-icons.grey-text.text-darken-4 menu
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.white-text{:href => "/contacto"} Contacto
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-3.white-text{:href => "/estadisticas"} Estadísticas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.red.darken-4.white-text{:href => "/tarifas"} Tarifas
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-3.white-text{:href => "/quienessomos"} Quienes Somos
+          %ul.right.hide-on-med-and-down.botonNav
+            %li
+              %a.grey.darken-4.white-text{:href => "/index"} Inicio
+          %ul#mobile-demo.side-nav
+            %li
+              %a{:href => "/index"} Inicio
+            %li
+              %a{:href => "/quienessomos"} Quienes Somos
+            %li
+              %a{:href => "/tarifas"} Tarifas
+            %li
+              %a{:href => "/estadisticas"} Estadísticas
+            %li
+              %a{:href => "/contacto"} Contacto
+    .marquee.col.s12
+      %p
+        - @indicators.each do |indicator|
+          %span.indice= "#{indicator.name}:"
+          =indicator.value
+    - if !@banners.blank?
+      .csslider1.autoplay
+        %input#cs_slide1_0.cs_anchor.slide{:name => "cs_anchor1", :type => "radio"}/
+        %input#cs_slide1_1.cs_anchor.slide{:name => "cs_anchor1", :type => "radio"}/
+        %input#cs_slide1_2.cs_anchor.slide{:name => "cs_anchor1", :type => "radio"}/
+        %input#cs_play1.cs_anchor{:checked => "checked", :name => "cs_anchor1", :type => "radio"}/
+        %input#cs_pause1_0.cs_anchor.pause{:name => "cs_anchor1", :type => "radio"}/
+        %input#cs_pause1_1.cs_anchor.pause{:name => "cs_anchor1", :type => "radio"}/
+        %input#cs_pause1_2.cs_anchor.pause{:name => "cs_anchor1", :type => "radio"}/
+        %ul
+          %li.cs_skeleton{style:"height:auto;"}
+            = image_tag @banners.last.banner, :style => "width: 100%;"
+          - @banners.each_with_index do |banner, index|
+            %li.img.slide{class: "num#{index}"}
+              = image_tag banner.banner
+        .cs_engine
+        .cs_description
+          %label.num0
+          %label.num1
+          %label.num2
+        .cs_play_pause
+          %label.cs_play{:for => "cs_play1"}
+            %span
+              %i
+              %b
+          %label.cs_pause.num0{:for => "cs_pause1_0"}
+            %span
+              %i
+              %b
+          %label.cs_pause.num1{:for => "cs_pause1_1"}
+            %span
+              %i
+              %b
+          %label.cs_pause.num2{:for => "cs_pause1_2"}
+            %span
+              %i
+              %b
+        .cs_arrowprev
+          %label.num0{:for => "cs_slide1_0"}
+            %span
+              %i
+              %b
+          %label.num1{:for => "cs_slide1_1"}
+            %span
+              %i
+              %b
+          %label.num2{:for => "cs_slide1_2"}
+            %span
+              %i
+              %b
+        .cs_arrownext
+          %label.num0{:for => "cs_slide1_0"}
+            %span
+              %i
+              %b
+          %label.num1{:for => "cs_slide1_1"}
+            %span
+              %i
+              %b
+          %label.num2{:for => "cs_slide1_2"}
+            %span
+              %i
+              %b
+        .cs_bullets
+          - @banners.each_with_index do |banner,index|
+            %label{class:"num#{index}", :for => "cs_slide1_#{index}"}
+              %span.cs_point
+              %span.cs_thumb
+                = image_tag banner.banner, style: "width:130px"
+    .row
+      .col.s12.m6.fondo.product
+        %h2 SERVICIOS
+    .row
+      .image.col.s12.m6.l3
+        %a{:href => "/colocacion"}
+          %img{:src => "assets/img/Colocacion_instrumentos.jpg"}/
+      .image.col.s12.m6.l3
+        %a{:href => "/estructuracion"}
+          %img{:src => "assets/img/Estructuracion_deuda.jpg"}/
+      .image.col.s12.m6.l3
+        %a{:href => "/custodia"}
+          %img{:src => "assets/img/Titulos_valores2.jpg"}/
+      .image.col.s12.m6.l3
+        %a{:href => "/mercadosecundario"}
+          %img{:src => "assets/img/Mercado_secundario.jpg"}/
+    .container
+      .divider.margenDivider
+    .section
+    .row
+      .col.s12.m12.l6
+        .card.red.darken-4.darken-1
+          .card-content.white-text
+            %span.card-title
+              %i.small.material-icons.left> assignment
+              Inscríbete en la Bolsa de Valores Bicentenaria
+            %p.justificar Toda persona natural o jurídica puede inscribirse y participar en el mercado de valores a través de la BPVB, obteniendo rendimientos atractivos por la inversión  (inversionistas) y condiciones óptimas para el financiamiento (emisor). Haz click en el enlace de interés para conocer los requisitos, instructivos y formatos descargables para realizar la inscripción de manera sencilla y sin contratiempo. Ante cualquier duda puede dirigirse a nuestras instalaciones donde recibirá atención del personal calificado.
+          .card-action
+            %a.grey.white-text.linkModulo{:href => "#modal1"}
+              %b INVERSOR
+            %a.grey.white-text.linkModulo{:href => "/emisor"}
+              %b EMISOR
+      #modal1.modal
+        .modal-content
+          %h4 MÓDULO DE INVERSIONISTAS
+          %p.justificar Bienvenido al módulo de inversionistas, aquí encontrará una descripción detallada del proceso de inscripción. Se sugiere leer con detenimiento los requisitos solicitados. En esta área encontrará un botón donde tiene la opción para descargar el formato editable y el instructivo paso a paso que le facilitará el proceso.<br> 
+          %p.justificar Elija entre las categorías "persona natural" o "persona jurídica", según sea el caso, pulsando los botones que se encuentran en la parte inferior, de igual forma ante posibles dudas puede contactarnos y recibir ayuda de nuestros promotores de inversión.
+        .modal-footer
+          %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "/persona"} Persona Natural
+          %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "/juridica"} Persona Jurídica
+      .col.s12.m12.l6
+        .redSocial
+          %a{:href => "/estadisticas"}
+            %img{:src => "assets/img/estadisticas.jpg"}/
+    .row
+      .col.s12.m9.fondo2.product2
+        %h2 SÍGUENOS
+    .row
+      .redSocial.col.s12.m4.center-align
+        .titleRedes.red.darken-4.left-align
+          %h6.white-text
+            %a.icon-twitter.img-circle
+            = succeed "" do
+              %b TWITTER
+        %a.twitter-timeline{"data-height" => "380", "data-width" => "450", :href => "https://twitter.com/Bolsa_Publica"} Tweets by Bolsa_Publica
+        %script{:async => "", :charset => "utf-8", :src => "http://platform.twitter.com/widgets.js"}
+      .redSocial.col.s12.m4.center-align
+        .titleRedes.red.darken-4.left-align
+          %h6.white-text
+            %a.icon-instagram.img-circle.white-text
+            %b INSTAGRAM
+        %iframe.snapwidget-widget{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "https://snapwidget.com/embed/431629", :style => "border:none; overflow:hidden"}
+      .redSocial.col.s12.m4
+        .titleRedes.grey.darken-3
+          %h6.white-text
+            %b Calculadora de Inversores
+        %a{:href => "/calculadora"}
+          %img{:src => "assets/img/calculadora.jpg"}/
+    %footer.page-footer
+      .container
+        .row
+          .col.s12.m6
+            %h5.white-text Bolsa Pública de Valores Bicentenaria
+            %p.grey-text.text-lighten-4
+              Av. Francisco de Miranda, Edif. Torre Europa, Piso Nivel C, Of. S/N
+              %br/
+              Urb. El Rosal, Caracas(Chacao), Miranda. Zona Postal: 1060.
+              %br/
+              %b Horario de atención al público:
+              De 8:00 a.m. a 4:30 p.m.
+              %br/
+              %b Teléfono:
+              0212-9558800.
+            %br/
+            %ul.social
+              %li
+                %h6 Redes Sociales:
+                %br/
+              %li
+                %a.icon-facebook.img-circle{:href => "https://www.facebook.com/bolsapublicave/", :target => "_blank"}
+                %a.icon-twitter.img-circle{:href => "https://twitter.com/Bolsa_Publica", :target => "_blank"}
+                %a.icon-instagram.img-circle{:href => "https://www.instagram.com/bolsa_publica/", :target => "_blank"}
+          .col.l4.offset-l2.s12
+            %h5.white-text Menú
+            %ul
+              %li
+                %a.grey-text.text-lighten-3{:href => "/documents/LCFT.pdf", :target => "blank"} Prevención y control
+              %li
+                %a.grey-text.text-lighten-3{:href => "/atencion"} Atención al Ciudadano
+              %li
+                %a.grey-text.text-lighten-3{:href => "/marcolegal"} Marco Legal
+              %li
+                %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve/snv/site/glosario_terminos.php"} Glosario de términos
+              %li
+                %a.grey-text.text-lighten-3{:href => "/concurso"} Concurso Público para Ingreso de Personal
+              %li
+                %a.grey-text.text-lighten-3{:href => "/contrataciones"} Contrataciones Públicas    
+              %h5.white-text Enlaces de interés
+              %ul
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.bcv.org.ve", :target => "blank"} Banco Central de Venezuela
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.sunaval.gob.ve", :target => "blank"} Superintendencia Nacional de Valores
+                %li
+                  %a.grey-text.text-lighten-3{:href => "http://www.mppef.gob.ve", :target => "blank"} Ministerio del Poder Popular de Economía y Finanzas
+      .footer-copyright
+        .container
+          © 2017 Copyright Bolsa Pública de Valores Bicentenaria / RIF: G-20009677-2
+    %script{:src => "assets/js/jquery-3.2.1.min.js", :type => "text/javascript"}
+    %script{:src => "assets/js/materialize.min.js", :type => "text/javascript"}
+    :javascript
+      $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+      })
+
+      $(document).ready(function(){
+          $('.slider').slider();
+        });
+
+      $(document).ready(function(){
+        $('.modal').modal();
+      });
