@@ -3,34 +3,33 @@
     .col.s12.m4.offset-m1
       .card-panel
         .row
-= form_for @contest do |f|
-  - if @contest.errors.any?
-    #error_explanation
-      %h3= "#{pluralize(@contest.errors.count, "error")} prohibited this contest from being saved:"
-      %ul
-        - @contest.errors.full_messages.each do |message|
-          %li= message
-    .row
-      .input-field.col.s12
-        %f.input#descripcion.validate{:titulo, :type => "text"}/         
-        %label{"data-error" => "wrong", "data-success" => "right", :for => "titulo"} Título
-    .row
-      .input-field.col.s12
-        %f.textarea#textarea1.materialize-textarea{:descripcion}
-        %label{:for => "textarea1"} Descripción
-    .file-field.input-field
-      .btn
-        %span File
-        %f.input{:document, :type => "file"}/
-      .file-path-wrapper
-        %input.file-path.validate
-      .col.s12.m4
-        .waves-effect.waves-light.btn= f.submit 'Guardar'                      
-.container
-  .row
-    .col.s12.right-align      
-      .col.s12.m4
-        .waves-effect.waves-light.btn= link_to 'Volver', contests_path
+          .col.s12
+          = form_for @contest do |f|
+            - if @contest.errors.any?
+              #error_explanation
+                %h5= "#{pluralize(@contest.errors.count, "errores")} no se pudo guardar el registro"
+                %ul
+                  - @contest.errors.full_messages.each do |message|
+                    %li= message
+            .row
+              .field.col.s12
+                = f.label :titulo
+                = f.text_field :titulo
+            .row
+              .field.col.s12
+                = f.label :descripcion
+                = f.text_area :descripcion
+            .file
+              .btn
+                %span File
+                = f.file_field :document
+              .file-path-wrapper
+                %input.file-path.validate{:type => "text"}/
+              .col.s12.m5.offset-m1.left-align              
+                .waves-effect.waves-light.btn= f.submit 'Guardar'
+              .col.s12.m5.offset-m1.center-align  
+                .waves-effect.waves-light.btn.linkw= link_to 'Volver', contests_path
+    
 
 %script{:src => "js/jquery-3.2.1.min.js", :type => "text/javascript"}
 %script{:src => "js/materialize.min.js", :type => "text/javascript"}

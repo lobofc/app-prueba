@@ -4,8 +4,7 @@
     = render 'app/layouts/head'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Bolsa Pública
-    %meta{:charset => "utf-8"}/
-    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %meta{:charset => "utf-8"}/    
     %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
@@ -48,28 +47,25 @@
               %a{:href => "/contacto"} Contacto
     .container.anidada
       .row
-        .col.s12.cambio.justificar
+        .col.s12.m10.offset-m1
           %h5 Tarifas de inscripción y colocación de títulos valores
-          %p.flow-text La Bolsa Pública de Valores Bicentenaria (BPVB), informa las nuevas tarifas de inscripción y colocación de Títulos Valores, prestando como siempre un servicio eficaz y con las mejores tarifas del mercado.
-        .col.s12.col.s12.hide-on-med-and-down
-          %table.striped.responsive-table.tablaMargen
+          %p.justificar La Bolsa Pública de Valores Bicentenaria (BPVB), informa las nuevas tarifas de inscripción y colocación de Títulos Valores, prestando como siempre un servicio eficaz y con las mejores tarifas del mercado.
+        .col.s12.m10.offset-m1.col.s12.hide-on-med-and-down
+          %table.responsive-table.tablaMargen
             %thead
               %tr.red.darken-4
-                %th.white-text Descripción de la Comisión
-                %th.white-text Detalles
-                %th.white-text Tarifa
+                %th.white-text.center-align.izquierda Descripción de la Comisión
+                %th.white-text.center-align.izquierda Detalles
+                %th.white-text.center-align.izquierda Tarifa
             %tbody
               %tr.izquierda
-                %td Inscripción de Títulos Valores
-                %td
-                  Las tarifas se aplican sobre el monto de la emisión aprobada por la
-                  %br/
-                  Superintendencia Nacional de Valores (SNV)
+                %td.izquierda Inscripción de Títulos Valores
+                %td.izquierda Las tarifas se aplican sobre el monto de la emisión aprobada por la Superintendencia Nacional de Valores (SNV)
                 %td 0,05%
               %tr.izquierda
-                %td Colocación de Títulos Valores
-                %td Las tarifas se aplican sobre los títulos valores totalmente colocados
-                %td 1,00%
+                %td.izquierda Colocación de Títulos Valores
+                %td.izquierda Las tarifas se aplican sobre los Títulos Valores totalmente colocados
+                %td.izquierda 1,00%
         .col.s12.hide-on-large-only
           %ul.collection
             %li.collection-item.red.darken-4.white-text.center.align
@@ -91,57 +87,71 @@
             %li.collection-item.red.darken-4.white-text.center.align
               %b Tarifa
             %li.collection-item.center.align 1,00%
-        .col.s12.cambio.justificar
-          %h5 Tarifas por servicio de mantenimiento de custodia
-        .margenList2.col.s12.m10.offset-m1.l8.offset-l2.hide-on-med-and-down
-          %p.flow-text.center.align Mantenimiento de Custodia Mensual
-          %img.responsive-img{:src => "/assets/img/tablex.jpg"}/
-        .col.s12.cambio.justificar
-          %p.flow-text El cálculo del mantenimiento de custodia mensual se realizara sobre la posición total de títulos valores que mantenga el inversor al cierre de mes, asimismo la fórmula que se aplicará es: Valor Nominal Bs. * 0,05% / 360 * 30, la factura se emitirá dentro de los 5 primeros días hábiles del mes siguiente.
-          %p.flow-text Si el resultado del cálculo es menor a 2 Unidades Tributarias (UT), se cobrará como mínimo 2 UT.
-          %p.flow-text Los Valores Nominales de los títulos en moneda extranjera, serán convertidos en Bolívares a la tasa de cambio oficial establecida.
+        .col.s12.m10.offset-m1.cambio.justificar
+          %h5 Tarifas por Servicio de Mantenimiento de Custodia Mensual
+        .col.s12.m10.offset-m1.col.s12.hide-on-med-and-down
+          %table.responsive-table.tablaMargen
+            %thead
+              %tr.red.darken-4.izquierda
+                %th.white-text.izquierda.center-align Descripción de la Comisión
+                %th.white-text.izquierda.center-align Detalles
+                %th.white-text.izquierda.center-align Tarifa
+            %tbody
+              %tr.izquierda
+                %td.izquierda{:rowspan => "2"} Persona Natural y Jurídica
+                %td.izquierda Menos de Bs. 50.000
+                %td.izquierda Exonerado
+              %tr.izquierda
+                %td.izquierda A partir de Bs. 50.001
+                %td.izquierda 0,05% s/Valor Nominal Bs (Mínimo 2UT)
         .col.s12.hide-on-large-only
           %ul.collection
             %li.collection-item.red.darken-4.white-text.center.align
-              %b Tipo de Personas
+              %b Descripción de la Comisión
             %li.collection-item.center.align Persona Natural y Jurídica
             %li.collection-item.red.darken-4.white-text.center.align
-              %b Valores Nominales en Bs. / Tarifas
+              %b Detalles / Tarifas
             %li.collection-item.center.align
               Menos de 50.000 / Exonerado
               %br/
               A partir de 50.001 / 0,05% s/Valor Nominal Bs. (Mínimo 2 UT)
+        .col.s12.m10.offset-m1
+          %p.justificar El cálculo del mantenimiento de Custodia mensual se realizara sobre la posición total de Títulos Valores que mantenga el inversionista al cierre de mes, asimismo la fórmula que se aplicará es: Valor Nominal Bs. * 0,05% / 360 * 30.
+          %p.justificar La factura se emitirá dentro de los 5 primeros días hábiles del mes siguiente.
+          %p.justificar Si el resultado del cálculo es menor a 2 Unidades Tributarias (UT), se cobrará como mínimo 2 UT.
+          %p.justificar Los Valores Nominales de los títulos en moneda extranjera, serán convertidos en Bolívares a la tasa de cambio oficial establecida.
+        .col.s12.m10.offset-m1.cambio.justificar
+          %h5 Tarifa Traspaso de Títulos Valores
+        .col.s12.m10.offset-m1.col.s12.hide-on-med-and-down
+          %table.responsive-table.tablaMargen
+            %thead
+              %tr.red.darken-4.izquierda
+                %th.white-text.izquierda.center-align Descripción de la Comisión
+                %th.white-text.izquierda.center-align Detalles
+                %th.white-text.izquierda.center-align Tarifa
+            %tbody
+              %tr.izquierda
+                %td.izquierda Persona Natural y Jurídica
+                %td.izquierda Traspaso por cada Título Valor a otra institución financiera
+                %td.izquierda 0,01% s/ Valor Nominal (Mínimo 2 UT)
+        .col.s12.hide-on-large-only
           %ul.collection
             %li.collection-item.red.darken-4.white-text.center.align
-              %b Tipo de Personas
-            %li.collection-item.center.align Personal activo de la BPVB
+              %b Descripción de la Comisión
+            %li.collection-item.center.align Persona Natural y Jurídica
             %li.collection-item.red.darken-4.white-text.center.align
-              %b Tarifas
+              %b Detalles
             %li.collection-item.center.align
-              Exonerado
-        .flow-text.col.col.s12.m10.offset-m1.l8.offset-l2.center.align
-          %p Traspaso de Títulos Valores
-        %table.striped.tablaMargen.col.s12.m10.offset-m1.l8.offset-l2
-          %thead
-            %tr
-              %th.alto.col.s6.red.darken-4
-                %h5.white-text Concepto
-              %th.alto.col.s6.red.darken-4
-                %h5.white-text Tarifa
-          %tbody
-            %tr.izquierda
-              %td.col.s6.center.align
-                %p
-                  %b Traspaso por cada título valor a otra institución financiera
-              %td.col.s6.center.align
-                %p
-                  %b 0,01% s/Valor Nominal (Mínimo 2 UT)
-        .col.s12.cambio.justificar
-          %p.flow-text El monto a cobrar se aplicará una vez que el inversor imparta la orden de transferir sus títulos desde la BPVB a otra institución financiera, debiendo efectuar el pago por tal concepto antes de realizar el traspaso.
-          %p.flow-text Si el resultado del cálculo es menor a 2 Unidades Tributarias (UT), se cobrará como mínimo 2 UT.
-          %p.flow-text
-            %b Formas de Pago
-          %p.flow-text Solo se aceptan transferencias electrónicas, depósitos o cheques de cuentas del inversor registrada en la BPVB.
+              Traspaso por cada Título Valor a otra institución financiera
+            %li.collection-item.red.darken-4.white-text.center.align
+              %b Tarifa
+            %li.collection-item.center.align
+              0,01% s/ Valor Nominal (Mínimo 2 UT)
+        .col.s12.m10.offset-m1
+          %p.justificar El monto a cobrar se aplicará una vez que el inversionista imparta la orden de transferir sus títulos desde la BPVB a otra institución financiera, debiendo efectuar el pago por tal concepto antes de realizar el traspaso.
+          %p.justificar Si el resultado del cálculo es menor a 2 Unidades Tributarias (UT), se cobrará como mínimo 2 UT.
+          %h5 Formas de Pago
+          %p.justificar Solo se aceptan transferencias electrónicas, depósitos o cheques de cuentas del inversor registrada en la BPVB.
     %footer.page-footer
       .container
         .row

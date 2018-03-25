@@ -1,0 +1,20 @@
+!!!
+%html
+  %head   
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bolsa Pública
+    %meta{:charset => "utf-8"}/       
+    %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/    
+%body{:bgcolor => "#eeeeee"}
+  %nav
+    .nav-wrapper.red.darken-4.navtop
+      %a.brand-logo{:href => "#"} Contrataciones Públicas
+  .container.titlelist
+    .row
+      %h3 Crear Nuevo
+
+= render 'form'
+
+
+
+

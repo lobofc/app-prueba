@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :contracts
+
   resources :contests
 
    get '/cssslider', to: 'app/front#cssslider', as: :app_cssslider
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
    get '/persona', to: 'app/front#persona', as: :app_persona
    get '/marcolegal', to: 'app/front#marcolegal', as: :app_marcolegal
    get '/concurso', to: 'contests#concurso'
+   get '/contrataciones', to: 'contracts#contrataciones'
+   get '/new', to: 'contests#new'
    get '/contrataciones', to: 'app/front#contrataciones', as: :app_contrataciones
    get '/mercadosecundario', to: 'app/front#mercadosecundario', as: :app_mercadosecundario
    get '/custodia', to: 'app/front#custodia', as: :app_custodia

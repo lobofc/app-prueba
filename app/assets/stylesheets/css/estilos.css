@@ -640,6 +640,15 @@ body {
   margin-top: 60px;
 }
 
+h5 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.padd {
+  border-right: 1px #000 solid;
+}
+
 
 
 

@@ -4,8 +4,7 @@
     = render 'app/layouts/head'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Bolsa Pública
-    %meta{:charset => "utf-8"}/
-    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %meta{:charset => "utf-8"}/    
     %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
@@ -51,57 +50,50 @@
         .shadow.col.s12
           .col.s12
             %img.responsive-img{:src => "assets/img/estructuracion.jpg"}/
-        .col.s12
-          %table.striped.tablaMargen
-            %thead
-              %tr
-                %th.alto.col.s6.yellow.darken-2
-                  %h5.white-text INSTRUMENTOS DE ESTRUCTURACIÓN
-                %th.alto.col.s6.red.darken-4
-                  %h5.white-text PRINCIPALES CARACTERÍSTICAS
-            %tbody
-              %tr.izquierda
-                %td.col.s6.cambio.justificar
-                  %p
-                    %b Obligaciones Quirografarias:
-                    Son instrumentos de deuda emitidos a plazos mayores a un (1) año, por sociedades mercantiles con garantía hipotecaria o quirografaria negociables en el mercado financiero.
-                %td.col.s6
-                  %ol.cambio
-                    %li
-                      %h6 A mediano y largo plazo (mayor a 1 año)
-                    %li
-                      %h6 Interés fijo o variable
-                    %li
-                      %h6 Con o sin garantía
-              %tr.izquierda
-                %td.col.s6.cambio.justificar
-                  %p
-                    %b Papeles Comerciales:
-                    Son instrumentos de deuda a un plazo menor de un (1) año, emitidos por sociedades mercantiles para financiar necesidades de corto plazo.
-                %td.col.s6
-                  %ol.cambio
-                    %li
-                      %h6 A corto plazo (mayor a 15 días – menor a 360 días
-                    %li
-                      %h6 Rendimiento
-              %tr.izquierda
-                %td.col.s6.cambio.justificar
-                  %p
-                    %b Títulos de Participación:
-                    Instrumento de deuda mediante el cual se transforma un activo no negociable, en un título negociable en el mercado secundario.
-                %td.col.s6
-                  %ol.cambio
-                    %li
-                      %h6 A mediano y largo plazo
-                    %li
-                      %h6 Interés fijo
-                    %li
-                      %h6 El inversionista adquiere la titularidad sobre el activo subyacente
-              %tr.izquierda
-                %td.col.s6.cambio.justificar
-                  %p
-                    %b Acciones:
-                    Capitalización de acciones de una empresa.        
+        %table.tablaMargen.col.s12.m10.offset-m1
+          %thead
+            %tr.izquierda
+              %th.alto.col.s6.yellow.darken-2
+                %p.white-text Nombre
+              %th.alto.col.s6.red.darken-4
+                %p.white-text Características
+          %tbody
+            %tr.izquierda
+              %td.cuadro2.col.s6.justificar.padd
+                %p
+                  %b Obligación:
+                  Título que representa una deuda de la entidad emisora, con garantía hipotecaria o quirografaria, negociable en el mercado financiero.
+              %td.col.s6
+                %ol
+                  %li A mediano y largo plazo (mayor a 1 año).
+                  %li Interés fijo o variable.
+                  %li Con o sin garantía.
+            %tr.izquierda
+              %td.cuadro2.col.s6.justificar.padd
+                %p
+                  %b Papel Comercial:
+                  Son instrumentos de deuda emitidos en masa por sociedades anónimas cuyo vencimiento es a corto plazo. Estos instrumentos se emiten para financiar el capital de trabajo de las sociedades.
+              %td.col.s6
+                %ol
+                  %li A corto plazo (mayor a 15 días – menor a 360 días).
+                  %li Colocación con prima, a descuento o valor par.
+            %tr.izquierda
+              %td.cuadro2.col.s6.justificar.padd
+                %p
+                  %b Titularización:
+                  Transformación de un activo no negociable, generalmente cuentas por cobrar, en un título que sí es negociable en el mercado secundario, y que, por tanto, puede ser adquirido por los inversionistas directamente.
+              %td.col.s6
+                %ol
+                  %li A mediano y largo plazo.
+                  %li El inversionista adquiere la titularidad sobre el activo subyacente.
+            %tr.izquierda
+              %td.cuadro2.col.s6.justificar.padd
+                %p
+                  %b Acción:
+                  Es el  valor que representa la propiedad de una parte del capital, estas confieren derechos económicos y políticos sobre la sociedad anónima emisora.
+              %td.col.s6
+                %ol
+                  %li Renta variable en función de la política de dividendos, revalorización o ajustes de precios.        
     %footer.page-footer
       .container
         .row

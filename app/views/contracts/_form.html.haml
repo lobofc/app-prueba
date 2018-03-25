@@ -1,0 +1,44 @@
+.container.formtop
+  .row
+    .col.s12.m4.offset-m1
+      .card-panel
+        .row
+          .col.s12
+          = form_for @contract do |f|
+            - if @contract.errors.any?
+              #error_explanation
+                %h5= "#{pluralize(@contract.errors.count, "errores")} no se pudo guardar el registro"
+                %ul
+                  - @contract.errors.full_messages.each do |message|
+                    %li= message
+            .row
+              .field.col.s12
+                = f.label :titulo
+                = f.text_field :titulo
+            .row
+              .field.col.s12
+                = f.label :descripcion
+                = f.text_area :descripcion
+            .file
+              .btn
+                %span File
+                = f.file_field :document
+              .file-path-wrapper
+                %input.file-path.validate{:type => "text"}/
+              .col.s12.m5.offset-m1.left-align              
+                .waves-effect.waves-light.btn= f.submit 'Guardar'
+              .col.s12.m5.offset-m1.center-align  
+                .waves-effect.waves-light.btn.linkw= link_to 'Volver', contracts_path
+    
+
+%script{:src => "js/jquery-3.2.1.min.js", :type => "text/javascript"}
+%script{:src => "js/materialize.min.js", :type => "text/javascript"}
+:javascript
+  $('#textarea1').val('');
+  $('#textarea1').trigger('autoresize');
+
+
+
+
+
+

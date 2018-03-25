@@ -4,8 +4,7 @@
     = render 'app/layouts/head'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Bolsa Pública
-    %meta{:charset => "utf-8"}/
-    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %meta{:charset => "utf-8"}/    
     %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
@@ -51,119 +50,110 @@
         .shadow.col.s12
           .col.s12
             %img.responsive-img{:src => "assets/img/colocacion.jpg"}/
-        .col.s8
-          %h5 Deuda Pública Nacional
-        %table.striped.tablaMargen
+        .col.s12.m10.offset-m1
+          %h5 Deuda Pública
+        %table.tablaMargen.col.s12.m10.offset-m1
           %thead
-            %tr
+            %tr.izquierda
               %th.alto.col.s6.yellow.darken-2
-                %h5.white-text Nombre
+                %p.white-text Nombre
               %th.alto.col.s6.red.darken-4
-                %h5.white-text Características
+                %p.white-text Características
           %tbody
             %tr.izquierda
-              %td.cuadro.col.s6.cambio
-                %h6
-                  %b Directo BCV
+              %td.col.s6.justificar.padd
+                %p
+                  %b TIF (Titulo de Interés Fijo):
+                  Instrumento con rendimiento fijo pagadero a largo plazo, con intereses trimestrales, dirigido a Personas Jurídicas y Personas Naturales.
               %td.col.s6
-                %ol.cambio
-                  %li
-                    %h6 Precio: 100%
-                  %li
-                    %h6 Rendimiento: alto
-                  %li
-                    %h6 16.5% - 90 días
-                  %li
-                    %h6 17% - 180 días
-                  %li
-                    %h6 Corto Plazo
+                %ol
+                  %li Interés fijo.
+                  %li Largo Plazo.
             %tr.izquierda
-              %td.cuadro.col.s6.cambio
-                %h6
-                  %b Título de Interés Fijo TIF
+              %td.col.s6.justificar.padd
+                %p
+                  %b VEBONOS (Títulos de Interés Variable):
+                  Instrumento con rendimiento variable, pagadero a largo plazo, con intereses trimestrales, dirigido a Personas Jurídicas y Personas Naturales.
               %td.col.s6
-                %ol.cambio
-                  %li
-                    %h6 Interés fijo
-                  %li
-                    %h6 Rendimiento del 12% al 16%
-                  %li
-                    %h6 Corto y Mediano Plazo
-                  %li
-                    %h6 Liquidez
+                %ol
+                  %li Interés Variable
+                  %li Largo Plazo
             %tr.izquierda
-              %td.cuadro.col.s6.cambio
-                %h6
-                  %b VEBONOS
+              %td.col.s6.justificar.padd
+                %p
+                  %b LETRAS DEL TESORO:
+                  Instrumento financiero a descuento pagadero al vencimiento (capital + intereses) a noventa y un (91) días, ciento ochenta y dos (182), y trescientos sesenta y cuatro (364) días, a Personas Jurídicas y Personas Naturales.
               %td.col.s6
-                %ol.cambio
-                  %li
-                    %h6 Interés Variable
-                  %li
-                    %h6 Rendimiento del 12% al 16%
-                  %li
-                    %h6 Largo Plazo
-                  %li
-                    %h6 Liquidez
-            %tr.izquierda
-              %td.cuadro2.col.s6.cambio
-                %h6
-                  %b TICC
-              %td.col.s6
-                %ol.cambio
-                  %li
-                    %h6 Interés Variable – indexado al tipo de cambio
-                  %li
-                    %h6 Resguardo de posible devaluación
-                  %li
-                    %h6 Denominados en dólares y pagaderos en bolívares
-            %tr.izquierda
-              %td.cuadro2.col.s6.cambio
-                %h6
-                  %b Letras del tesoro
-              %td.col.s6
-                %ol.cambio
-                  %li
-                    %h6 Plazo 90 a 360 días
-                  %li
-                    %h6 Instrumentos Cero Cupón
-        %h5 Deuda Privada
-        %table.striped.tablaMargen
+                %ol
+                  %li Plazo 91 a 364 días.
+                  %li Instrumentos Cero Cupón.
+        .col.s12.m10.offset-m1
+          %h5 Deuda Privada
+        %table.tablaMargen.col.s12.m10.offset-m1
           %thead
-            %tr
-              %th.alto.col.s6.red.accent-4
-                %h5.white-text Nombre
-              %th.alto.col.s6.grey.darken-1
-                %h5.white-text Características
+            %tr.izquierda
+              %th.alto.col.s6.yellow.darken-2
+                %p.white-text Nombre
+              %th.alto.col.s6.red.darken-4
+                %p.white-text Características
           %tbody
             %tr.izquierda
-              %td.cuadro2.col.s6.cambio
-                %h6
-                  %b Obligaciones Quirografarias
+              %td.cuadro2.col.s6.justificar.padd
+                %p
+                  %b Obligación:
+                  Título que representa una deuda de la entidad emisora, con garantía hipotecaria o quirografaria, negociable en el mercado financiero.
               %td.col.s6
-                %ol.cambio
-                  %li
-                    %h6 Plazo: 0 a 5 años
-                  %li
-                    %h6 Diversifica el portafolio
-                  %li
-                    %h6 Precio: 100% - Mercado Primario
+                %ol
+                  %li A mediano y largo plazo (mayor a 1 año).
+                  %li Interés fijo o variable.
+                  %li Con o sin garantía.
             %tr.izquierda
-              %td.cuadro2.col.s6.cambio
-                %h6
-                  %b Papeles Comerciales
+              %td.cuadro2.col.s6.justificar.padd
+                %p
+                  %b Papel Comercial:
+                  Son instrumentos de deuda emitidos en masa por sociedades anónimas cuyo vencimiento es a corto plazo. Estos instrumentos se emiten para financiar el capital de trabajo de las sociedades.
               %td.col.s6
-                %ol.cambio
-                  %li
-                    %h6 15 días a 1 año
+                %ol
+                  %li A corto plazo (mayor a 15 días – menor a 360 días).
+                  %li Colocación con prima, a descuento o valor par.
             %tr.izquierda
-              %td.cuadro2.col.s6.cambio
-                %h6
-                  %b Acciones
+              %td.cuadro2.col.s6.justificar.padd
+                %p
+                  %b Titularización:
+                  Transformación de un activo no negociable, generalmente cuentas por cobrar, en un título que sí es negociable en el mercado secundario, y que, por tanto, puede ser adquirido por los inversionistas directamente.
               %td.col.s6
-                %ol.cambio
-                  %li
-                    %h6 Rendimiento: 12% a 20%
+                %ol
+                  %li A mediano y largo plazo.
+                  %li El inversionista adquiere la titularidad sobre el activo subyacente.
+            %tr.izquierda
+              %td.cuadro2.col.s6.justificar.padd
+                %p
+                  %b Acción:
+                  Es el  valor que representa la propiedad de una parte del capital, estas confieren derechos económicos y políticos sobre la sociedad anónima emisora.
+              %td.col.s6
+                %ol
+                  %li Renta variable en función de la política de dividendos, revalorización o ajustes de precios.
+        .col.s12.m10.offset-m1
+          %h5 Otros Instrumentos
+        %table.tablaMargen.col.s12.m10.offset-m1
+          %thead
+            %tr.izquierda
+              %th.alto.col.s6.yellow.darken-2
+                %p.white-text Nombre
+              %th.alto.col.s6.red.darken-4
+                %p.white-text Características
+          %tbody
+            %tr.izquierda
+              %td.col.s6.justificar.padd
+                %p
+                  %b DBCV (Directo Banco Central de Venezuela):
+                  Instrumento Financiero pagadero al vencimiento (capital + intereses) de noventa (90) días con un rendimiento de 16.50%, y de ciento ochenta (180) días con un rendimiento de 17%, dirigido a Personas Naturales, Cajas de Ahorro y Fondos de Ahorro Públicas y Privadas.
+              %td.col.s6
+                %ol
+                  %li Precio: 100%.
+                  %li 16.5% - 90 días.
+                  %li 17% - 180 días.
+                  %li Corto Plazo.
     %footer.page-footer
       .container
         .row

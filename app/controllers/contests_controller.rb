@@ -4,11 +4,13 @@ class ContestsController < ApplicationController
   # GET /contests
   # GET /contests.json
   def index
-    @contests = Contest.all 
+    @contests = Contest.all
+    @contests = @contests.all.order("created_at DESC") 
   end
 
   def concurso
     @contests = Contest.all
+    @contests = @contests.all.order("created_at DESC") 
   end
 
   # GET /contests/1
@@ -32,7 +34,7 @@ class ContestsController < ApplicationController
 
     respond_to do |format|
       if @contest.save
-        format.html { redirect_to @contest, notice: 'Contest was successfully created.' }
+        format.html { redirect_to @contest, notice: 'El registro a sido creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @contest }
       else
         format.html { render :new }
@@ -46,7 +48,7 @@ class ContestsController < ApplicationController
   def update
     respond_to do |format|
       if @contest.update(contest_params)
-        format.html { redirect_to @contest, notice: 'Contest was successfully updated.' }
+        format.html { redirect_to @contest, notice: 'El registro ha sido actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @contest }
       else
         format.html { render :edit }
@@ -60,7 +62,7 @@ class ContestsController < ApplicationController
   def destroy
     @contest.destroy
     respond_to do |format|
-      format.html { redirect_to contests_url, notice: 'Contest was successfully destroyed.' }
+      format.html { redirect_to contests_url, notice: 'El registro ha sido borrado satisfactoriamente.' }
       format.json { head :no_content }
     end
   end

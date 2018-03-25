@@ -4,8 +4,7 @@
     = render 'app/layouts/head'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Bolsa Pública
-    %meta{:charset => "utf-8"}/
-    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %meta{:charset => "utf-8"}/    
     %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
@@ -53,16 +52,16 @@
             %img.responsive-img{:src => "assets/img/intermediacion.jpg"}/
         .col.s12.m10.offset-m1.center-align.tablaMargen
           %h5 PASOS BÁSICOS DE UNA OPERACIÓN OFERTA O DEMANDA
-        %table.striped.tablaMargen
+        %table.tablaMargen.col.s12.m10.offset-m1
           %thead
-            %tr
+            %tr.izquierda
               %th.alto.col.s6.yellow.darken-2
-                %h5.white-text Demanda
+                %p.white-text Nombre
               %th.alto.col.s6.red.darken-4
-                %h5.white-text Oferta
+                %p.white-text Características
           %tbody
             %tr.izquierda
-              %td.col.s6
+              %td.col.s6.padd
                 %ol
                   %li
                     %p El inversionista manifiesta su intención de compra.
@@ -79,18 +78,16 @@
                   %li
                     %p El promotor ofrece la disponibilidad en el mercado de valores.
                   %li
-                    %h6 Se pacta la operación de acuerdo a las condiciones de la oferta.
+                    %p Se pacta la operación de acuerdo a las condiciones de la oferta.
                   %li
                     %p El inversionista se hace de liquidez.
-        .col.s12.cambio
+        .col.s12
           .col.s8.m2
             %h5 NOTA:
           .col.s12
             %ul.listinSimple
-              %li
-                %h6 - Fecha Pacto: Fecha en la cual se aprueba o confirma (pacto en firme) la operación por parte del inversionista.
-              %li
-                %h6 - Fecha Valor: Fecha en la cual se cruza la operación, por lo que deberá estar el pago de la misma antes del día señalado.
+              %li - Fecha Pacto: Fecha en la cual se aprueba o confirma (pacto en firme) la operación por parte del inversionista.
+              %li - Fecha Valor: Fecha en la cual se cruza la operación, por lo que deberá estar el pago de la misma antes del día señalado.
     %footer.page-footer
       .container
         .row

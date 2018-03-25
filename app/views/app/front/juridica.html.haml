@@ -4,8 +4,7 @@
     = render 'app/layouts/head'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Bolsa Pública
-    %meta{:charset => "utf-8"}/
-    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %meta{:charset => "utf-8"}/    
     %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
@@ -49,7 +48,7 @@
     .container.anidada
       .row
         .col.s12
-          %h4 Requisitos para Persona Jurídica
+          %h5 Requisitos para Persona Jurídica
         .card-content
           #test4
             .row.col.s12
@@ -60,35 +59,35 @@
               .col.s12.red.darken-1.border
                 %h5.white-text.center-align.requisito Ficha de Identificación del Inversionista
               .col.s12.borderList
-                %ol.margenList.cambio
+                %ol.margenList
                   %li
-                    %h6 Original.
+                    %p Original.
                   %li
-                    %h6 Obtenida por medios electrónicos a través del portal de la Bolsa Pública de Valores Bicentenaria (www.bpvb.gob.ve), con la información solicitada en cada uno de sus campos. En caso contrario, coloque N/A en señal de no aplica en cada ítems, impresa en tamaño carta.
+                    %p Obtenida por medios electrónicos a través del portal de la Bolsa Pública de Valores Bicentenaria (www.bpvb.gob.ve), con la información solicitada en cada uno de sus campos. En caso contrario, coloque N/A en señal de no aplica en cada ítems, impresa en tamaño carta.
                   %li
-                    %h6 Debidamente con su firma igual a la Cédula de Identidad y huella. Sin tachaduras ni enmiendas.
+                    %p Debidamente con su firma igual a la Cédula de Identidad y huella. Sin tachaduras ni enmiendas.
                   %li
-                    %h6 Puede ser llenada a bolígrafo o en computador.
+                    %p Puede ser llenada a bolígrafo o en computador.
             .row
               .col.s12.grey.darken-2.border2
                 %h5.white-text.center-align.requisito Documento Constitutivo Estatutario o Ley de Creación (Según Corresponda)
-              .col.s12.borderList.cambio
-                %h6.margenList2
+              .col.s12.borderList
+                %p.margenList2
                   %b En caso de ser Instituto Público:
-                %ol.margenList.cambio
+                %ol.margenList
                   %li
-                    %h6 Gaceta Oficial.
+                    %p Gaceta Oficial.
                   %li
-                    %h6 Instrumento de Designación de la Máxima Autoridad.
+                    %p Instrumento de Designación de la Máxima Autoridad.
                   %li
-                    %h6 Instrumento en el cual consta la facultad de actuar ante la BPVB.
-                %h6.margenList2
+                    %p Instrumento en el cual consta la facultad de actuar ante la BPVB.
+                %p.margenList2
                   %b En caso de ser empresa venezolana:
-                %ol.margenList.cambio
+                %ol.margenList
                   %li
-                    %h6 Copia del Documento Constitutivo de la Empresa.
+                    %p Copia del Documento Constitutivo de la Empresa.
                   %li
-                    %h6
+                    %p
                       Actas de Asamblea General de Accionistas, en caso de existir alguna modificación en los estatutos relacionadas a:
                       %br/
                       %br/
@@ -106,153 +105,152 @@
                       %br/
                       7. Venta o Transferencias de Acciones.
                       %br/
-                %h6.margenList2
+                %p.margenList2
                   %b En caso de ser Empresa Extranjera no domiciliada en el país:
-                %ol.margenList.cambio
+                %ol.margenList
                   %li
-                    %h6 Copia del Documento Constitutivo, traducido al idioma Castellano, debidamente legalizado.
+                    %p Copia del Documento Constitutivo, traducido al idioma Castellano, debidamente legalizado.
                   %li
-                    %h6 En caso que uno (1) o más accionistas sean Persona Jurídica, deberán consignar:
+                    %p En caso que uno (1) o más accionistas sean Persona Jurídica, deberán consignar:
                   %li
-                    %h6 Copia del Documento Constitutivo y RIF de la misma.
+                    %p Copia del Documento Constitutivo y RIF de la misma.
             .row
               .col.s12.blue.darken-3.border3
                 %h5.white-text.center-align.requisito Registro de Información Fiscal (RIF)
               .col.s12.borderList
-                %ol.margenList.cambio
+                %ol.margenList
                   %li
-                    %h6 Copia.
+                    %p Copia.
                   %li
-                    %h6 Vigente y legible.
+                    %p Vigente y legible.
             .row
               .col.s12.yellow.darken-2.border4
                 %h5.white-text.center-align.requisito Poder (En caso de Representante Legal)
               .col.s12.borderList
-                %ol.margenList.cambio
+                %ol.margenList
                   %li
-                    %h6 Cuando corresponda.
+                    %p Cuando corresponda.
                   %li
-                    %h6 Copia.
+                    %p Copia.
                   %li
-                    %h6 Debidamente autenticado.
+                    %p Debidamente autenticado.
                   %li
-                    %h6 En caso de actuar a través de Poder, el mismo debe facultar expresamente, las operaciones que pretenda efectuar en la BPVB.
+                    %p En caso de actuar a través de Poder, el mismo debe facultar expresamente, las operaciones que pretenda efectuar en la BPVB.
             .row
               .col.s12.red.darken-1.border
                 %h5.white-text.center-align.requisito Planillas de las últimas tres (03) Declaraciones del Impuesto Sobre La Renta (ISLR).
               .col.s12.borderList
-                %h6.margenList2
+                %p.margenList2
                   %b (Exceptuando Cajas y Fondos de Ahorro, Entidades Bancarias, Seguros y Operadores de Valores Autorizados).
                 %ol.margenList.cambio
                   %li
-                    %h6 Copia.
+                    %p Copia.
                   %li
-                    %h6 En caso que la empresa esté constituida en un tiempo menor a tres años, consignar las declaradas hasta la fecha.
+                    %p En caso que la empresa esté constituida en un tiempo menor a tres años, consignar las declaradas hasta la fecha.
             .row
               .col.s12.grey.darken-2.border2
                 %h5.white-text.center-align.requisito Estados de Cuenta
               .col.s12.borderList
                 %h6.margenList2
                   %b (Exceptuando las Entidades Bancarias).
-                %ol.margenList.cambio
+                %ol.margenList
                   %li
-                    %h6 De los últimos tres (03) meses correspondientes a las cuentas inscritas en la Ficha de Identificación del Inversionista.
+                    %p De los últimos tres (03) meses correspondientes a las cuentas inscritas en la Ficha de Identificación del Inversionista.
                   %li
-                    %h6 Debidamente firmados y sellados por la entidad bancaria emisora.
+                    %p Debidamente firmados y sellados por la entidad bancaria emisora.
             .row
               .col.s12.yellow.darken-2.border4
                 %h5.white-text.center-align.requisito Certificación Bancaria de Apertura de la Cuenta Convenio N° 20
               .col.s12.borderList
-                %ol.margenList.cambio
+                %ol.margenList
                   %li
-                    %h6 Deberá reflejar las Coordenadas del Banco Corresponsal
+                    %p Deberá reflejar las Coordenadas del Banco Corresponsal
                   %li
-                    %h6 Debidamente firmada y sellada por la entidad bancaria emisora
+                    %p Debidamente firmada y sellada por la entidad bancaria emisora
                   %li
-                    %h6 Certificación Bancaria de otras cuentas en el exterior que desee incorporar
+                    %p Certificación Bancaria de otras cuentas en el exterior que desee incorporar
         .row
           .col.s12.blue.darken-3.border3
             %h5.white-text.center-align.requisito Balance General de la Empresa y Estado de Ganancias y Pérdidas
           .col.s12.borderList
-            %h6.margenList2
+            %p.margenList2
               %b (Exceptuando Cajas y Fondos de Ahorro, Entidades Bancarias, Seguros y Operadores de Valores Autorizados).
-            %ol.margenList.cambio
+            %ol.margenList
               %li
-                %h6 Deberá corresponder a la fecha de cierre según los estatutos y los tres (03) últimos ejercicios fiscales.
+                %p Deberá corresponder a la fecha de cierre según los estatutos y los tres (03) últimos ejercicios fiscales.
               %li
-                %h6 Si la empresa tiene menos de este tiempo operando deberá consignar Estados Financieros de los Ejercicios que posee.
+                %p Si la empresa tiene menos de este tiempo operando deberá consignar Estados Financieros de los Ejercicios que posee.
               %li
-                %h6 Los Estados Financieros no podrán ser elaborados ni firmados por el Comisario de la empresa (En caso de poseerlo), deberán estar avalados por un Contador Público colegiado y certificado.
+                %p Los Estados Financieros no podrán ser elaborados ni firmados por el Comisario de la empresa (En caso de poseerlo), deberán estar avalados por un Contador Público colegiado y certificado.
         .row
           .col.s12.borderList
             %ul.margenList
-              %li.cambio
-                %h6
+              %li
+                %p
                   %b LOS MIEMBROS DE LA JUNTA DIRECTIVA DE LA EMPRESA IDENTIFICADOS EN EL DOCUMENTO CONSTITUTIVO ESTATUTARIO, DEBERÁN CONSIGNAR:
         .row
           .col.s12.red.darken-1.border
             %h5.white-text.center-align.requisito.cambio Cédula de Identidad de todos los integrantes de la Junta Directiva
           .col.s12.borderList
-            %h6.margenList2
-              %b Cédula de Identidad de todos los integrantes de la Junta Directiva.
-            %ol.margenList.cambio
+            %ol.margenList
               %li
-                %h6 Copia.
+                %p Copia.
               %li
-                %h6 Visible, Legible y Vigente.
+                %p Visible, Legible y Vigente.
         .row
           .col.s12.grey.darken-2.border2
             %h5.white-text.center-align.requisito Pasaporte de los integrantes de la Junta Directiva
           .col.s12.borderList
-            %h6.margenList2
+            %p.margenList2
               %b SÓLO PARA EXTRANJEROS RESIDENTES EN EL TERRITORIO DE LA REPÚBLICA BOLIVARIANA DE VENEZUELA.
-            %ol.margenList.cambio
+            %ol.margenList
               %li
-                %h6 Copia.
+                %p Copia.
               %li
-                %h6 Visible, Legible y Vigente.
+                %p Visible, Legible y Vigente.
               %li
-                %h6 En caso de tener Visa de trabajo, debe incluirla.
+                %p En caso de tener Visa de trabajo, debe incluirla.
         .row
           .col.s12.blue.darken-3.border3
             %h5.white-text.center-align.requisito Registro de Información Fiscal (RIF) de todos los integrantes de la Junta Directiva
           .col.s12.borderList
-            %ol.margenList.cambio
+            %ol.margenList
               %li
-                %h6 Copia Vigente y legible.
+                %p Copia Vigente y legible.
         .col.s12
           %ul
-            %li.cambio
-              %h6
+            %li
+              %p
                 %b EN CASO DE SER EMPRESA EXTRANJERA, DEBERÁ CONSIGNAR:
         .row
           .col.s12.yellow.darken-2.border4
             %h5.white-text.center-align.requisito Certificado de Inversionista Extranjero
           .col.s12.borderList
-            %ol.margenList.cambio
+            %ol.margenList
               %li
-                %h6 Copia.
+                %p Copia.
               %li
-                %h6 Emanada por la Superintendencia Nacional de Valores.
+                %p Emanada por la Superintendencia Nacional de Valores.
     %ul#slide-out.side-nav
       %li
         .user-view
-          .background            
+          .background
+            %img{:src => "images/"}/
           %a{:href => "#!user"}
-            %img.circle{:src => "assets/img/logo.png"}/
+            %img.circle{:src => "images/logo.png"}/
           %a{:href => "#!name"}
             %span.black-text.name
               %b Persona Jurídica
       %li
         .divider
       %li
-        %a{:href => "paso a paso persona juridica.pdf", :target => "blank"} Instructivo paso a paso
+        %a{:href => "/documents/paso a paso persona jurídica.pdf", :target => "blank"} Instructivo paso a paso
       %li
-        %a{:href => "Lista de recaudos para PJ.pdf", :target => "blank"} Lista de recaudos
+        %a{:href => "/documents/Lista de recaudos para PJ.pdf", :target => "blank"} Lista de recaudos
       %li
-        %a{:href => "Ficha de Identificacion del Inversor PJ.docx", :target => "blank"} Ficha de identificación del inversor
+        %a{:href => "/documents/Ficha de Identificacion del Inversor PJ.docx"} Ficha de identificación del inversor
       %li
-        %a{:href => "Separadores Inversor Persona Juridica.docx", :target => "blank"} Modelo de Carpeta                        
+        %a{:href => "/documents/Separadores Inversor Persona Jurídica.pdf", :target => "blank"} Modelo de Carpeta                        
     %footer.page-footer
       .container
         .row

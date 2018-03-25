@@ -4,8 +4,7 @@
     = render 'app/layouts/head'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Bolsa Pública
-    %meta{:charset => "utf-8"}/
-    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %meta{:charset => "utf-8"}/   
     %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
@@ -48,14 +47,13 @@
               %a{:href => "/contacto"} Contacto
     .container.anidada
       .row
+        .col.s12.m10.offset-m1
+          %h5 Oficina de Atención al Ciudadano
+          %p.justificar Es una dependencia pública adscrita a la máxima autoridad de esta institución que tiene como propósito promover la participación ciudadana y garantizar el efectivo ejercicio de este derecho, ofreciendo a la ciudadanía medios que le permitan participar de manera directa y organizada, individual y asociativa; en asuntos públicos tal y como lo enmarca la nueva institucionalidad del Estado venezolano.
         .col.s12
-          %img.responsive-img{:src => "assets/img/infoAtencion.jpg"}/
-        .col.s12
-          %img.responsive-img{:src => "assets/img/atencion-medio.jpg"}/
-        .col.s12
-          %h5.tablaMargen.center-align ¿Cómo puede presentar su denuncia, queja, reclamo, solicitud o sugerencia ante la Oficina de Atención al Ciudadano?    
+          %img.responsive-img{:src => "assets/img/atencion-medio.jpg"}/            
         .image.tablaMargen.col.s12
-          %img{:src => "assets/img/atencion.png"}/
+          %img{:src => "assets/img/atencion.jpg"}/
     %footer.page-footer
       .container
         .row

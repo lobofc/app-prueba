@@ -4,8 +4,7 @@
     = render 'app/layouts/head'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Bolsa Pública
-    %meta{:charset => "utf-8"}/
-    %link{:href => "assets/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %meta{:charset => "utf-8"}/    
     %link{:href => "assets/css/estilos.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     %link{:href => "assets/css/fonts.css", :rel => "stylesheet"}/
@@ -48,185 +47,177 @@
               %a{:href => "/contacto"} Contacto
     .container.anidada
       .row
-        .col.s12.m8.offset-m2
-          %h3 Requisitos para la Emisión
         .col.s12
-          .row
-            .col.s12.m8.offset-m2
-              %table.striped.tablaMargen.cambio
-                %thead
-                  %tr
-                    %th.alto.col.s12.red.darken-4
-                      / <a href="#" data-activates="slide-out" class="btn button-collapse white black-text"><i class="material-icons left">archive</i>Descargar Formatos</a>
-                %tbody
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p
-                            %i.small.material-icons check_circle
-                            Información general de la empresa.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Documento constitutivo y Objeto social.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Referencias comerciales y bancarias.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Últimas 3 declaraciones ISLR.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Balance de Comprobación actualizado.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Uso de fondos.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Datos históricos del emisor.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Evolución del capital social (5años).
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Composición de Junta Directiva.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Miembros de Comité Ejecutivo.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Resumen Curricular de miembros de Junta Directiva, Comités y Comisarios.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Datos de auditores externos.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Principales  accionistas.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Empresas donde el emisor tiene participación mayor al 20%.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Contratos de mayor importancia.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Litigios y reclamaciones.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Estados financieros auditados.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Avalúos de inmuebles en garantía.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Posición en moneda extranjera.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Diferencia cambiaria capitalizada.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Ganancias por fluctuación cambiaria.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Pérdidas por fluctuación cambiaria.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Política de depreciación y amortización.
-                  %tr.izquierda
-                    %td.cuadro.col.s12
-                      %ul
-                        %li
-                          %p.flow-text
-                            %i.small.material-icons check_circle
-                            Calificación de riesgo.
+          %h5 Requisitos para la Emisión de Estructuración de Deuda y/o Colocación de Instrumento
+        .card-content
+          #test4
+            .row.col.s12
+              %a.btn.button-collapse.red.darken-4.white-text{"data-activates" => "slide-out", :href => "#"}
+                %i.material-icons.left> archive
+                Descargar Formatos
+            .row
+              .col.s12.red.darken-1.border
+                %h5.white-text.center-align.requisito Ficha de Identificación del Emisor
+              .col.s12.borderList
+                %ol.margenList
+                  %li
+                    %p Original.
+                  %li
+                    %p Obtenida por medios electrónicos a través del portal de la Bolsa Pública de Valores Bicentenaria (www.bpvb.gob.ve), con la información solicitada en cada uno de sus campos. En caso contrario, coloque N/A en señal de no aplica en cada ítems, impresa en tamaño carta.
+                  %li
+                    %p Debidamente con su firma igual a la Cédula de Identidad y huella. Sin tachaduras ni enmiendas.
+                  %li
+                    %p Puede ser llenada a bolígrafo o en computador.
+            .row
+              .col.s12.grey.darken-2.border2
+                %h5.white-text.center-align.requisito Documento Constitutivo Estatutario o Ley de Creación (Según Corresponda)
+              .col.s12.borderList
+                %p.margenList2
+                  %b En caso de ser Instituto Público:
+                %ol.margenList
+                  %li
+                    %p Gaceta Oficial.
+                  %li
+                    %p Instrumento de Designación de la Máxima Autoridad.
+                  %li
+                    %p Instrumento en el cual consta la facultad de actuar ante la BPVB.
+                %p.margenList2
+                  %b En caso de ser empresa venezolana:
+                %ol.margenList
+                  %li
+                    %p Copia del Documento Constitutivo de la Empresa.
+                  %li
+                    %p
+                      Actas de Asamblea General de Accionistas, en caso de existir alguna modificación en los estatutos relacionadas a:
+                      %br/
+                      %br/
+                      1. Modificación de la Razón Social.
+                      %br/
+                      2. Ampliación del Objeto (Actividad Económica).
+                      %br/
+                      3. Aumento del Capital.
+                      %br/
+                      4. Modificación de la Junta Directiva.
+                      %br/
+                      5. Cambio de Comisario.
+                      %br/
+                      6. Cambio del Domicilio.
+                      %br/
+                      7. Venta o Transferencias de Acciones.
+                      %br/
+                %p.margenList2
+                  %b En caso de ser Empresa Extranjera no domiciliada en el país:
+                %ol.margenList
+                  %li
+                    %p Copia del Documento Constitutivo, traducido al idioma Castellano, debidamente legalizado.
+                  %li
+                    %p En caso que uno (1) o más accionistas sean Persona Jurídica, deberán consignar:
+                  %li
+                    %p Copia del Documento Constitutivo y RIF de la misma.
+            .row
+              .col.s12.blue.darken-3.border3
+                %h5.white-text.center-align.requisito Registro de Información Fiscal (RIF)
+              .col.s12.borderList
+                %ol.margenList
+                  %li
+                    %p Copia.
+                  %li
+                    %p Vigente y legible.
+            .row
+              .col.s12.yellow.darken-2.border4
+                %h5.white-text.center-align.requisito Poder (En caso de Representante Legal)
+              .col.s12.borderList
+                %ol.margenList
+                  %li
+                    %p Cuando corresponda.
+                  %li
+                    %p Copia.
+                  %li
+                    %p Debidamente autenticado.
+                  %li
+                    %p En caso de actuar a través de Poder, el mismo debe facultar expresamente, las operaciones que pretenda efectuar en la BPVB.
+            .row
+              .col.s12.red.darken-1.border
+                %h5.white-text.center-align.requisito Planillas de las últimas tres (03) Declaraciones del Impuesto Sobre La Renta (ISLR).
+              .col.s12.borderList
+                %ol.margenList
+                  %li
+                    %p Copia.
+                  %li
+                    %p En caso que la empresa esté constituida en un tiempo menor a tres años, consignar las declaradas hasta la fecha.
+            .row
+              .col.s12.grey.darken-2.border2
+                %h5.white-text.center-align.requisito Estados de Cuenta
+              .col.s12.borderList
+                %ol.margenList
+                  %li
+                    %p De los últimos tres (03) meses correspondientes a las cuentas inscritas en la Ficha de Identificación del Inversionista.
+                  %li
+                    %p Debidamente firmados y sellados por la entidad bancaria emisora.
+            .row
+              .col.s12.yellow.darken-2.border4
+                %h5.white-text.center-align.requisito Certificación Bancaria de Apertura de la Cuenta Convenio N° 20 (Opcional)
+              .col.s12.borderList
+                %ol.margenList
+                  %li
+                    %p Deberá reflejar las Coordenadas del Banco Corresponsal
+                  %li
+                    %p Debidamente firmada y sellada por la entidad bancaria emisora
+                  %li
+                    %p Certificación Bancaria de otras cuentas en el exterior que desee incorporar
+        .row
+          .col.s12.blue.darken-3.border3
+            %h5.white-text.center-align.requisito Balance General de la Empresa y Estado de Ganancias y Pérdidas
+          .col.s12.borderList
+            %ol.margenList
+              %li
+                %p Deberá corresponder a la fecha de cierre según los estatutos y los tres (03) últimos ejercicios fiscales.
+              %li
+                %p Si la empresa tiene menos de este tiempo operando deberá consignar Estados Financieros de los Ejercicios que posee.
+              %li
+                %p Los Estados Financieros no podrán ser elaborados ni firmados por el Comisario de la empresa (En caso de poseerlo), deberán estar avalados por un Contador Público colegiado y certificado.
+        .row
+          .col.s12.red.darken-1.border
+            %h5.white-text.center-align.requisito Los Miembros de la Junta Directiva de la Empresa Identificados en el Documento Constitutivo Estatutario, deberán consignar:
+          .col.s12.borderList
+            %ol.margenList
+              %li
+                %p Cédula de Identidad de todos los integrantes de la Junta Directiva.
+              %li
+                %p Pasaporte de los integrantes de la Junta Directiva.
+              %li
+                %p Registro de Información Fiscal (RIF) de todos los integrantes de la Junta Directiva.
+        .row
+          .col.s12.yellow.darken-2.border4
+            %h5.white-text.center-align.requisito En caso de ser Empresa Extrangera, deberá consignar:
+          .col.s12.borderList
+            %ol.margenList
+              %li
+                %p Certificado de Inversionista Extranjero.
+        .col.s12
+          %p.justificar
+            %b Nota:
+            En caso de inscripción por Colocación de Instrumento de Mercado de Valores, se deben consignar documentos adicionales. VER LISTAS DE RECAUDOS.
+      %ul#slide-out.side-nav2
+        %li
+          .user-view
+            .background
+              %img{:src => "images/"}/
+            %a{:href => "#!user"}
+              %img.circle{:src => "images/logo.png"}/
+            %a{:href => "#!name"}
+              %span.black-text.name
+                %b Emisor
+        %li
+          .divider
+        %li
+          %a{:href => "/documents/FICHA_EMISOR.docx", :target => "blank"} Ficha de identificación del Emisor
+        %li
+          %a{:href => "/documents/recaudosEmisor-Estructuración.docx", :target => "blank"} Lista de Recaudos Emisor Estructuración de Deuda
+        %li
+          %a{:href => "/documents/recaudosEmisor-Colocación.docx"} Lista de Recaudos Emisor Colocación de Instrumento
+        %li
+          %a{:href => "/documents/carpetaEmisor.docx", :target => "blank"} Modelo de Carpeta Emisor Estructuración de Deuda / Colocación de Instrumento
     %footer.page-footer
       .container
         .row
